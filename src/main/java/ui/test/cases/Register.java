@@ -54,7 +54,7 @@ public class Register {
 		// // WebDriver driver = new InternetExplorerDriver();
 	}
 
-	public void doRegister() {
+	public void doRegister(String tc) {
 
 		try {
 
@@ -64,8 +64,7 @@ public class Register {
 			driver.findElement(By.xpath("//*[@id=\"loginForm\"]/div/div[2]/a"))
 					.click();
 
-			((JavascriptExecutor) driver).executeScript(Messages
-					.getString("LoginTest.jsregister")); //$NON-NLS-1$
+			((JavascriptExecutor) driver).executeScript(tc); //$NON-NLS-1$
 
 			// register
 			driver.findElement(
@@ -75,7 +74,7 @@ public class Register {
 			// check the agree box
 			driver.findElement(By.id("agreeCheck")).click();
 
-			// register
+			// click button register
 			driver.findElement(
 					By.xpath("//*[@id=\"pro_box\"]/div[2]/form/ul/li[7]/button"))
 					.click();
