@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mysql.jdbc.Messages;
+
 import ui.test.cases.Register;
 
 /**
@@ -29,7 +31,8 @@ public class RegisterTest {
 	@Transactional
 	public void testRegister() {
 		register.init();
-		register.doRegister();
+		String tc = Messages.getString("LoginTest.jsregister");
+		register.doRegister(tc);
 		assertEquals(true, registerData.getLoginName("13291801306").size() > 0);
 	}
 }
