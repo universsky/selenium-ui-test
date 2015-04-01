@@ -23,28 +23,52 @@ public class LoginTest {
 	private Login login;
 
 	@Test
-	public void testLogin() {
+	public void testLoginUserNameIsEmpty() {
 		login.init();
 
 		// 1. userName is empty test
 		String tc = Messages.getString("LoginTest.jslogin_UserNameIsEmptyTest");
 		login.doLogin(tc);
 
-		// 2. password is empty test
-		tc = Messages.getString("LoginTest.jslogin_PasswordIsEmptyTest");
-		login.doLogin(tc);
+	}
 
-		// 3. PasswordIsWrongTest
-		tc = Messages.getString("LoginTest.jslogin_PasswordIsWrongTest");
-		login.doLogin(tc);
+	@Test
+	public void testLoginPasswordIsEmpty() {
+		login.init();
 
-		// 4. UserNameNotExistTest
-		tc = Messages.getString("LoginTest.jslogin_UserNameNotExistTest");
-		login.doLogin(tc);
-
-		// 5. solution test
-		tc = Messages.getString("LoginTest.jslogin_SolutionTest");
+		String tc = Messages.getString("LoginTest.jslogin_PasswordIsEmptyTest");
 		login.doLogin(tc);
 
 	}
+
+	@Test
+	public void testLoginPasswordIsWrong() {
+		login.init();
+
+		String tc = Messages.getString("LoginTest.jslogin_PasswordIsWrongTest");
+		login.doLogin(tc);
+
+	}
+
+	@Test
+	public void testLoginUserNameNotExist() {
+		login.init();
+
+		// 4. UserNameNotExistTest
+		String tc = Messages
+				.getString("LoginTest.jslogin_UserNameNotExistTest");
+		login.doLogin(tc);
+
+	}
+
+	@Test
+	public void testLoginSolutionTest() {
+		login.init();
+
+		// 5. solution test
+		String tc = Messages.getString("LoginTest.jslogin_SolutionTest");
+		login.doLogin(tc);
+
+	}
+
 }
