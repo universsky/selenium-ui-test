@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import ui.test.cases.Login;
+import ui.test.cases.Messages;
 
 /**
  * @author chenguangjian 2015年3月30日 下午5:29:39
@@ -24,6 +25,26 @@ public class LoginTest {
 	@Test
 	public void testLogin() {
 		login.init();
-		login.doLogin();
+
+		// 1. userName is empty test
+		String tc = Messages.getString("LoginTest.jslogin_UserNameIsEmptyTest");
+		login.doLogin(tc);
+
+		// 2. password is empty test
+		tc = Messages.getString("LoginTest.jslogin_PasswordIsEmptyTest");
+		login.doLogin(tc);
+
+		// 3. PasswordIsWrongTest
+		tc = Messages.getString("LoginTest.jslogin_PasswordIsWrongTest");
+		login.doLogin(tc);
+
+		// 4. UserNameNotExistTest
+		tc = Messages.getString("LoginTest.jslogin_UserNameNotExistTest");
+		login.doLogin(tc);
+
+		// 5. solution test
+		tc = Messages.getString("LoginTest.jslogin_SolutionTest");
+		login.doLogin(tc);
+
 	}
 }
