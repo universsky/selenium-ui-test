@@ -25,15 +25,15 @@ public class Register {
 		super();
 	}
 
-	private static final String url = Messages.getString("LoginTest.url"); //$NON-NLS-1$
+	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
 	private WebDriver driver;
 
 	public void init() {
-		System.setProperty(Messages.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
-				Messages.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
+		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
+				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		FirefoxProfile firefoxprofile = new FirefoxProfile(new File(
-				Messages.getString("LoginTest.firefox_profile_path"))); //$NON-NLS-1$
+				TCData.getString("LoginTest.firefox_profile_path"))); //$NON-NLS-1$
 		capabilities.setCapability(FirefoxDriver.PROFILE, firefoxprofile);
 
 		driver = new FirefoxDriver(capabilities);

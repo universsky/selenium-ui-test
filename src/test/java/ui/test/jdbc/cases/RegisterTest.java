@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import ui.test.cases.Messages;
+import ui.test.cases.TCData;
 import ui.test.cases.Register;
 import ui.test.jdbc.data.RegisterData;
 
@@ -31,7 +31,7 @@ public class RegisterTest {
 	@Transactional
 	public void testRegister() {
 		register.init();
-		String tc = Messages.getString("LoginTest.jsregister");
+		String tc = TCData.getString("LoginTest.jsregister");
 		register.doRegister(tc);
 		assertEquals(true, registerData.getLoginName("13291801306").size() > 0);
 

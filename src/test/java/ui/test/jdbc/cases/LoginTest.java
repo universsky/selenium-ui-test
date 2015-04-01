@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import ui.test.cases.Login;
-import ui.test.cases.Messages;
 
 /**
  * @author chenguangjian 2015年3月30日 下午5:29:39
@@ -27,8 +26,8 @@ public class LoginTest {
 		login.init();
 
 		// 1. userName is empty test
-		String tc = Messages.getString("LoginTest.jslogin_UserNameIsEmptyTest");
-		login.doLogin(tc);
+		String tcKey = "LoginTest.jslogin_UserNameIsEmptyTest";
+		login.doLogin(tcKey);
 
 	}
 
@@ -36,28 +35,25 @@ public class LoginTest {
 	public void testLoginPasswordIsEmpty() {
 		login.init();
 
-		String tc = Messages.getString("LoginTest.jslogin_PasswordIsEmptyTest");
-		login.doLogin(tc);
+		String tcKey = "LoginTest.jslogin_PasswordIsEmptyTest";
+		login.doLogin(tcKey);
 
 	}
 
 	@Test
 	public void testLoginPasswordIsWrong() {
 		login.init();
-
-		String tc = Messages.getString("LoginTest.jslogin_PasswordIsWrongTest");
-		login.doLogin(tc);
+		String tcKey = "LoginTest.jslogin_PasswordIsWrongTest";
+		login.doLogin(tcKey);
 
 	}
 
 	@Test
 	public void testLoginUserNameNotExist() {
 		login.init();
-
 		// 4. UserNameNotExistTest
-		String tc = Messages
-				.getString("LoginTest.jslogin_UserNameNotExistTest");
-		login.doLogin(tc);
+		String tcKey = "LoginTest.jslogin_UserNameNotExistTest";
+		login.doLogin(tcKey);
 
 	}
 
@@ -66,9 +62,8 @@ public class LoginTest {
 		login.init();
 
 		// 5. solution test
-		String tc = Messages.getString("LoginTest.jslogin_SolutionTest");
-		login.doLogin(tc);
+		String tcKey = "LoginTest.jslogin_SolutionTest";
+		login.doLogin(tcKey);
 
 	}
-
 }
