@@ -19,7 +19,7 @@ public class RegisterDataTest {
 	@Test
 	public void testGetLoginName() {
 		String loginName = "13262505677";
-		
+
 		List<String> names = registerData.getLoginName(loginName);
 		System.out.println(names);
 		assertEquals(true, names.size() > 0);
