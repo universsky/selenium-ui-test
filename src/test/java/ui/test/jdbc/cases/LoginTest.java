@@ -37,7 +37,7 @@ public class LoginTest {
 		login.init();
 
 		// 1. userName is empty test
-		String tcKey = "LoginTest.jslogin_UserNameIsEmptyTest";
+		String tcKey = "LoginTest.UserNameIsEmptyTest";
 
 		WebDriver driver = login.doLogin(tcKey);
 		String curUrl = driver.getCurrentUrl();
@@ -55,7 +55,7 @@ public class LoginTest {
 			IOException {
 		login.init();
 
-		String tcKey = "LoginTest.jslogin_PasswordIsEmptyTest";
+		String tcKey = "LoginTest.PasswordIsEmptyTest";
 		WebDriver driver = login.doLogin(tcKey);
 
 		String curUrl = driver.getCurrentUrl();
@@ -72,7 +72,7 @@ public class LoginTest {
 	public void testLoginPasswordIsWrong() throws WebDriverException,
 			IOException {
 		login.init();
-		String tcKey = "LoginTest.jslogin_PasswordIsWrongTest";
+		String tcKey = "LoginTest.PasswordIsWrongTest";
 		WebDriver driver = login.doLogin(tcKey);
 
 		String curUrl = driver.getCurrentUrl();
@@ -90,7 +90,7 @@ public class LoginTest {
 			IOException {
 		login.init();
 		// 4. UserNameNotExistTest
-		String tcKey = "LoginTest.jslogin_UserNameNotExistTest";
+		String tcKey = "LoginTest.UserNameNotExistTest";
 
 		WebDriver driver = login.doLogin(tcKey);
 
@@ -109,7 +109,7 @@ public class LoginTest {
 		login.init();
 
 		// 5. solution test
-		String tcKey = "LoginTest.jslogin_SolutionTest";
+		String tcKey = "LoginTest.SolutionTest";
 		WebDriver driver = login.doLogin(tcKey);
 
 		String curUrl = driver.getCurrentUrl();
