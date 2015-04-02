@@ -16,13 +16,15 @@ import ui.test.constant.Const;
 /**
  * @author chenguangjian 2015年4月1日 下午9:15:49
  */
+
 public class ReportTool {
+
 	/**
 	 * @param tcKey
 	 * @throws WebDriverException
 	 * @throws IOException
 	 */
-	public static void record(String tcKey, WebDriver driver)
+	public static void record(String tcKey, WebDriver driver, String tcResult)
 			throws WebDriverException, IOException {
 
 		File srcFile = ((TakesScreenshot) driver)
@@ -35,8 +37,8 @@ public class ReportTool {
 
 		String imgName = f.getName();
 		System.out.println(imgName);
-
-		DBTool.insertImgName(Const.timestamp, imgName);
+		DBTool DBTool = new DBTool();
+		DBTool.insertImgName(tcKey, Const.timestamp, imgName, tcResult);
 	}
 
 }

@@ -3,17 +3,52 @@
  */
 package ui.test.tools;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 
 /**
  * @author chenguangjian 2015年4月1日 下午9:02:34
  */
+
 public class DBTool {
 
+	private JdbcTemplate jdbcTemplate = (JdbcTemplate) SpringUtil
+			.getBean("jdbcTemplate");
+
 	public static void main(String[] args) {
+
+		DBTool DBTool = new DBTool();
+		String tcKey = "LoginTest.jslogin_UserNameIsEmptyTest";
 		String timestamp = "20150401203951";
 		String imgName = "20150401203951_LoginTest.jslogin_UserNameNotExistTest.jpeg";
-		insertImgName(timestamp, imgName);
+		String tcResult = "PASS";
+
+		DBTool.insertImgName(tcKey, timestamp, imgName, tcResult);
+
+		String v = DBTool.getTcValueBytcKey(tcKey);
+		System.out.println(v);
+	}
+
+	public String getTcValueBytcKey(String tcKey) {
+		String sql = " select tc_value from t_uitest_cases where tc_key=? ";
+		Object params[] = new Object[] { tcKey };
+		String[] tcValue = { "" };
+		System.out.println(jdbcTemplate);
+		jdbcTemplate.query(sql, params, new RowCallbackHandler() {
+
+			@Override
+			public void processRow(ResultSet rs) throws SQLException {
+
+				tcValue[0] = rs.getString("tc_value");
+			}
+		});
+
+		return tcValue[0];
+
 	}
 
 	/**
@@ -22,32 +57,16 @@ public class DBTool {
 	 * @param imgName
 	 * @return
 	 */
-	public static boolean insertImgName(String timestamp, String imgName) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver"); // 加载MYSQL JDBC驱动程序
-			System.out.println("Success loading Mysql Driver!");
-		} catch (Exception e) {
-			System.out.print("Error loading Mysql Driver!");
-			e.printStackTrace();
-		}
-		try {
-			Connection connect = DriverManager.getConnection(
-					"jdbc:mysql://127.0.0.1:3306/ui_test", "root", "root");
-			// 连接URL为 jdbc:mysql//服务器地址/数据库名 ，后面的2个参数分别是登陆用户名和密码
+	public int insertImgName(String tcKey, String timestamp, String imgName,
+			String tcResult) {
 
-			System.out.println("Success connect Mysql server!");
-			Statement stmt = connect.createStatement();
+		String sql = " INSERT INTO t_uitest_result(tc_key,timestamp,img_name,tc_result) VALUES (?,?,?,?) ";
+		Object params[] = new Object[] { tcKey, timestamp, imgName, tcResult };
 
-			String insertCmd = "INSERT INTO t_ui_test(timestamp,img_name) VALUES ('"
-					+ timestamp + "','" + imgName + "')";
-			System.out.println(insertCmd);
-			boolean rs = stmt.execute(insertCmd);
-			return rs;
+		System.out.println(jdbcTemplate);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
+		return jdbcTemplate.update(sql, params);
+
 	}
 
 }
