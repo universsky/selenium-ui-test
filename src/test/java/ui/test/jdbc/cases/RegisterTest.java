@@ -52,5 +52,7 @@ public class RegisterTest {
 				.getMsg() : TCResult.FAIL.getMsg();
 		ReportTool.record(tcKey, driver, tcResult);
 
+		assertEquals(true, registerData.getLoginName("13291801306").size() > 0);
+
 	}
 }
