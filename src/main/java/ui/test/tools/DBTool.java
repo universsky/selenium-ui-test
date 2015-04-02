@@ -21,12 +21,12 @@ public class DBTool {
 
 	public static void main(String[] args) {
 
-		DBTool DBTool = new DBTool();
 		String tcKey = "LoginTest.jslogin_UserNameIsEmptyTest";
 		String timestamp = "20150401203951";
 		String imgName = "20150401203951_LoginTest.jslogin_UserNameNotExistTest.jpeg";
 		String tcResult = "PASS";
 
+		DBTool DBTool = new DBTool();
 		DBTool.insertImgName(tcKey, timestamp, imgName, tcResult);
 
 		String v = DBTool.getTcValueBytcKey(tcKey);
