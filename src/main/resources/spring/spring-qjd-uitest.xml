@@ -45,7 +45,7 @@
 		p:dataSource-ref="dataSource">
 	</bean>
 
-	<!-- <bean id="registerData" class="ui.test.jdbc.data.RegisterData"></bean> -->
+
 	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
 		p:url="jdbc:mysql://10.1.1.182:3306/cif_dev" p:username="cif_dev"
@@ -63,6 +63,8 @@
 		p:dataSource-ref="dataSource">
 	</bean>
 
+
+	<bean id="registerData" class="ui.test.jdbc.data.RegisterData"></bean>
 
 </beans>
 

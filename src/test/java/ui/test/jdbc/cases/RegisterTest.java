@@ -20,6 +20,7 @@ import ui.test.cases.Register;
 import ui.test.constant.TCResult;
 import ui.test.jdbc.data.RegisterData;
 import ui.test.tools.ReportTool;
+import ui.test.tools.SpringUtil;
 
 /**
  * @author chenguangjian 2015年3月30日 下午5:22:15
@@ -28,8 +29,8 @@ import ui.test.tools.ReportTool;
 @ContextConfiguration(locations = { "file:src/main/resources/spring/spring-qjd-uitest.xml" })
 public class RegisterTest {
 
-	@Autowired
-	private RegisterData registerData;
+	private RegisterData registerData = (RegisterData) SpringUtil
+			.getBean("registerData");
 	@Autowired
 	private Register register;
 
