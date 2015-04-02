@@ -69,9 +69,9 @@ public class Login {
 	 * 
 	 * @param tcKey
 	 */
-	public void doLogin(String tcKey) {
+	public WebDriver doLogin(String tcKey) {
 
-		String tcValue = TCData.getString(tcKey);
+		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
 		try {
 
@@ -81,17 +81,11 @@ public class Login {
 			driver.findElement(By.xpath(xpathExpression)).click();
 
 			Thread.sleep(5000);
-
-			ReportTool.record(tcKey, driver);
+			return driver;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				driver.close();
-				driver.quit();
-			} catch (Exception e) {
-			}
+			return null;
 		}
 
 	}
