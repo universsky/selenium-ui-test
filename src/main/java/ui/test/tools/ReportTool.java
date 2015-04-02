@@ -39,6 +39,7 @@ public class ReportTool {
 		System.out.println(imgName);
 		DBTool DBTool = new DBTool();
 		DBTool.insertImgName(tcKey, Const.timestamp, imgName, tcResult);
+
 	}
 
 }

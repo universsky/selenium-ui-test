@@ -26,11 +26,17 @@ import ui.test.tools.SpringUtil;
  * @author chenguangjian 2015年3月30日 下午5:22:15
  */
 @RunWith(org.springframework.test.context.junit4.SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "file:src/main/resources/spring/spring-qjd-uitest.xml" })
+@ContextConfiguration(locations = {
+		"file:src/main/resources/spring/spring-qjd-uitest.xml",
+		"file:src/main/resources/spring/spring-qjd-uitest-bean.xml" })
 public class RegisterTest {
 
-	private RegisterData registerData = (RegisterData) SpringUtil
-			.getBean("registerData");
+	// private RegisterData registerData = (RegisterData) SpringUtil
+	// .getBean("registerData");
+
+	@Autowired
+	private RegisterData registerData;
+
 	@Autowired
 	private Register register;
 

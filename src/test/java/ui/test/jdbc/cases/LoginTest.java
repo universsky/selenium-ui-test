@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
+import org.aspectj.lang.annotation.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +24,7 @@ import ui.test.tools.ReportTool;
  * @author chenguangjian 2015年3月30日 下午5:29:39
  */
 @RunWith(org.springframework.test.context.junit4.SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "file:src/main/resources/spring/spring-qjd-uitest.xml" })
+@ContextConfiguration(locations = { "file:src/main/resources/spring/spring-qjd-uitest-bean.xml" })
 public class LoginTest {
 	private static final String url = TCData.getString("LoginTest.url");
 
@@ -125,4 +126,5 @@ public class LoginTest {
 		ReportTool.record(tcKey, driver, tcResult);
 
 	}
+
 }

@@ -32,10 +32,6 @@ import ui.test.tools.WebTool;
  */
 public class Login {
 
-	public Login() {
-		super();
-	}
-
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
 	private WebDriver driver;
 

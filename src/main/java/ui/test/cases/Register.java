@@ -24,10 +24,6 @@ import ui.test.tools.ReportTool;
  */
 public class Register {
 
-	public Register() {
-		super();
-	}
-
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
 	private WebDriver driver;
 
