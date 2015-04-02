@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ui.test.cases.TCData;
 import ui.test.cases.Register;
+import ui.test.constant.TCResult;
 import ui.test.jdbc.data.RegisterData;
 import ui.test.tools.ReportTool;
 
@@ -42,8 +43,8 @@ public class RegisterTest {
 
 		assertEquals(true, registerData.getLoginName("13291801306").size() > 0);
 
-		String tcResult = registerData.getLoginName("13291801306").size() > 0 ? "PASS"
-				: "FAIL";
+		String tcResult = registerData.getLoginName("13291801306").size() > 0 ? TCResult.PASS
+				.getMsg() : TCResult.FAIL.getMsg();
 		ReportTool.record(tcKey, driver, tcResult);
 
 	}
