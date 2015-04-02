@@ -45,9 +45,8 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		assertEquals(true, url.equals(curUrl));
-
 		ReportTool.record(tcKey, driver, tcResult);
+		assertEquals(true, url.equals(curUrl));
 
 	}
 
@@ -64,9 +63,8 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		assertEquals(true, url.equals(curUrl));
-
 		ReportTool.record(tcKey, driver, tcResult);
+		assertEquals(true, url.equals(curUrl));
 
 	}
 
@@ -82,9 +80,8 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		assertEquals(true, url.equals(curUrl));
-
 		ReportTool.record(tcKey, driver, tcResult);
+		assertEquals(true, url.equals(curUrl));
 
 	}
 
@@ -102,9 +99,8 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		assertEquals(true, url.equals(curUrl));
-
 		ReportTool.record(tcKey, driver, tcResult);
+		assertEquals(true, url.equals(curUrl));
 
 	}
 
@@ -121,9 +117,9 @@ public class LoginTest {
 		String tcResult = afterLoginUrl.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		assertEquals(true, afterLoginUrl.equals(curUrl));
-
 		ReportTool.record(tcKey, driver, tcResult);
+
+		assertEquals(true, afterLoginUrl.equals(curUrl));
 
 	}
 

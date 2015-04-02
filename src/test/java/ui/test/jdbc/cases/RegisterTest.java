@@ -45,9 +45,7 @@ public class RegisterTest {
 	public void testRegister() throws WebDriverException, IOException {
 		register.init();
 		String tcKey = "LoginTest.jsregister";
-
 		WebDriver driver = register.doRegister(tcKey);
-
 		assertEquals(true, registerData.getLoginName("13291801306").size() > 0);
 
 		String tcResult = registerData.getLoginName("13291801306").size() > 0 ? TCResult.PASS
