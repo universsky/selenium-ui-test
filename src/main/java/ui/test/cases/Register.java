@@ -16,6 +16,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import ui.test.tools.DBTool;
+import ui.test.tools.ReportTool;
+
 /**
  * @author chenguangjian 2015年3月30日 下午5:24:21
  */
@@ -54,41 +57,40 @@ public class Register {
 		// // WebDriver driver = new InternetExplorerDriver();
 	}
 
-	public void doRegister(String tc) {
+	public WebDriver doRegister(String tcKey) {
+
+		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
 		try {
 
 			driver.get(url);
 
 			// click free register
-			driver.findElement(By.xpath("//*[@id=\"loginForm\"]/div/div[2]/a"))
+			driver.findElement(
+					By.xpath(TCData.getString("Register.free_register"))) //$NON-NLS-1$
 					.click();
 
-			((JavascriptExecutor) driver).executeScript(tc); //$NON-NLS-1$
+			((JavascriptExecutor) driver).executeScript(tcValue); //$NON-NLS-1$
 
 			// register
 			driver.findElement(
-					By.xpath("//*[@id=\"pro_box\"]/div[2]/form/ul/li[7]/button"))
+					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
 					.click();
 
 			// check the agree box
-			driver.findElement(By.id("agreeCheck")).click();
+			driver.findElement(By.id(TCData.getString("Register.agree_check"))).click(); //$NON-NLS-1$
 
 			// click button register
 			driver.findElement(
-					By.xpath("//*[@id=\"pro_box\"]/div[2]/form/ul/li[7]/button"))
+					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
 					.click();
 
 			Thread.sleep(5000);
+			return driver;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				driver.close();
-				driver.quit();
-			} catch (Exception e) {
-			}
+			return null;
 		}
 
 	}
