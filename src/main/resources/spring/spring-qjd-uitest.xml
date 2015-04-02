@@ -23,7 +23,6 @@
 	<!-- scan the class package -->
 	<context:component-scan base-package="ui.test.jdbc.data,ui.test.cases,ui.test.tools"></context:component-scan>
 
-	<bean id="registerData" class="ui.test.jdbc.data.RegisterData"></bean>
 	<bean id="login" class="ui.test.cases.Login"></bean>
 	<bean id="register" class="ui.test.cases.Register"></bean>
 
@@ -46,6 +45,23 @@
 		p:dataSource-ref="dataSource">
 	</bean>
 
+	<!-- <bean id="registerData" class="ui.test.jdbc.data.RegisterData"></bean> -->
+	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
+		p:url="jdbc:mysql://10.1.1.182:3306/cif_dev" p:username="cif_dev"
+		p:password="cif_dev@123">
+	</bean>
+
+	<!-- define a jdbcTemplate -->
+	<bean id="jdbcTemplate2" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSource2">
+	</bean>
+
+	<!-- define a transaction manager -->
+	<bean id="transactionManager2"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSource">
+	</bean>
 
 
 </beans>

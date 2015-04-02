@@ -24,8 +24,6 @@
 	<context:component-scan base-package="ui.test.jdbc.data,ui.test.cases,ui.test.tools"></context:component-scan>
 
 	<bean id="registerData" class="ui.test.jdbc.data.RegisterData"></bean>
-	<bean id="login" class="ui.test.cases.Login"></bean>
-	<bean id="register" class="ui.test.cases.Register"></bean>
 
 	<!-- <util:properties id="salt" location="/spring/salt.properties" /> -->
 	<!-- define a dataSource using dbcp -->

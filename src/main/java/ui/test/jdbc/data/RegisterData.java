@@ -20,12 +20,15 @@ import ui.test.tools.SpringUtil;
 
 public class RegisterData {
 
-	public RegisterData() {
-		super();
-	}
-
 	private JdbcTemplate jdbcTemplate = (JdbcTemplate) SpringUtil
-			.getBeanDev("jdbcTemplate");
+			.getBean("jdbcTemplate2");
+
+	public static void main(String[] args) {
+		RegisterData RegisterData = new RegisterData();
+		String loginName = "13262505677";
+
+		System.out.println(RegisterData.getLoginName(loginName));
+	}
 
 	/**
 	 * 
