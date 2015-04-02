@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 
+import ui.test.tools.SpringUtil;
+
 /**
  * @author chenguangjian 2015年3月30日 下午4:34:14
  */
@@ -22,8 +24,8 @@ public class RegisterData {
 		super();
 	}
 
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private JdbcTemplate jdbcTemplate = (JdbcTemplate) SpringUtil
+			.getBeanDev("jdbcTemplate");
 
 	/**
 	 * 
