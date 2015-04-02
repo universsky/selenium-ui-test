@@ -5,6 +5,7 @@ package ui.test.cases;
 
 import java.awt.Toolkit;
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
@@ -12,12 +13,18 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import ui.test.constant.Const;
+import ui.test.tools.DBTool;
+import ui.test.tools.ReportTool;
 import ui.test.tools.WebTool;
 
 /**
@@ -75,7 +82,7 @@ public class Login {
 
 			Thread.sleep(5000);
 
-			WebTool.takeScreenShot(driver, tcKey);
+			ReportTool.record(tcKey, driver);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,4 +95,5 @@ public class Login {
 		}
 
 	}
+
 }
