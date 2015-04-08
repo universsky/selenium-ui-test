@@ -69,12 +69,13 @@ public class Register {
 			((JavascriptExecutor) driver).executeScript(tcValue); //$NON-NLS-1$
 
 			// register
-			driver.findElement(
-					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
-					.click();
+			// driver.findElement(
+			//					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
+			// .click();
 
 			// check the agree box
-			driver.findElement(By.id(TCData.getString("Register.agree_check"))).click(); //$NON-NLS-1$
+			driver.findElement(
+					By.xpath(TCData.getString("Register.agree_check"))).click(); //$NON-NLS-1$
 
 			// click button register
 			driver.findElement(
