@@ -23,16 +23,17 @@ public class Main {
 	 */
 	public static void main(String[] args) throws WebDriverException,
 			IOException {
-		goTest();
-		report();
+		Main m = new Main();
+		m.goTest();
+		m.report();
 	}
 
-	public static void goTest() throws WebDriverException, IOException {
+	private void goTest() throws WebDriverException, IOException {
 
 		LoginTest loginTest = new LoginTest();
+		loginTest.testLoginSolutionTest();
 		loginTest.testLoginPasswordIsEmpty();
 		loginTest.testLoginPasswordIsWrong();
-		loginTest.testLoginSolutionTest();
 		loginTest.testLoginUserNameIsEmpty();
 		loginTest.testLoginUserNameNotExist();
 
@@ -41,7 +42,7 @@ public class Main {
 
 	}
 
-	public static void report() {
+	private void report() {
 		if (java.awt.Desktop.isDesktopSupported()) {
 			try {
 				String reportUriStr = Const.reportPath + Const.timestamp;

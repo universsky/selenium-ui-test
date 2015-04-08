@@ -19,7 +19,7 @@ import ui.test.tools.ReportTool;
  * @author chenguangjian 2015年3月30日 下午5:22:15
  */
 public class RegisterTest {
-	Logger logger = LoggerFactory.getLogger(RegisterTest.class);
+	static Logger logger = LoggerFactory.getLogger(RegisterTest.class);
 	// private RegisterData registerData = (RegisterData) SpringUtil
 	// .getBean("registerData");
 

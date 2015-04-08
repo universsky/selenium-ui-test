@@ -19,7 +19,7 @@ import ui.test.tools.ReportTool;
  * @author chenguangjian 2015年3月30日 下午5:29:39
  */
 public class LoginTest {
-	Logger logger = LoggerFactory.getLogger(LoginTest.class);
+	private static Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
 	private static final String url = TCData.getString("LoginTest.url");
 
@@ -105,6 +105,7 @@ public class LoginTest {
 
 		String curUrl = driver.getCurrentUrl();
 		String afterLoginUrl = "http://dev.qjdchina.com/front/member/apply.htm";
+
 		String tcResult = afterLoginUrl.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
