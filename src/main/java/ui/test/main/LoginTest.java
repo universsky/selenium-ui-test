@@ -105,6 +105,7 @@ public class LoginTest {
 		WebDriver driver = login.doLogin(tcKey);
 
 		TimeTool.delayMilliSeconds(5000);
+
 		String curUrl = driver.getCurrentUrl();
 		String afterLoginUrl = "http://dev.qjdchina.com/front/member/apply.htm";
 

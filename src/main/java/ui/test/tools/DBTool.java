@@ -37,7 +37,7 @@ public class DBTool {
 		String sql = " select tc_value from t_uitest_cases where tc_key=? ";
 		Object params[] = new Object[] { tcKey };
 		String[] tcValue = { "" };
-		System.out.println(jdbcTemplate);
+		// System.out.println(jdbcTemplate);
 		jdbcTemplate.query(sql, params, new RowCallbackHandler() {
 
 			@Override
@@ -63,7 +63,7 @@ public class DBTool {
 		String sql = " INSERT INTO t_uitest_result(tc_key,timestamp,img_name,tc_result) VALUES (?,?,?,?) ";
 		Object params[] = new Object[] { tcKey, timestamp, imgName, tcResult };
 
-		System.out.println(jdbcTemplate);
+		// System.out.println(jdbcTemplate);
 
 		return jdbcTemplate.update(sql, params);
 
