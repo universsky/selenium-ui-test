@@ -82,7 +82,6 @@ public class Register {
 					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
 					.click();
 
-			Thread.sleep(5000);
 			return driver;
 
 		} catch (Exception e) {

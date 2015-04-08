@@ -76,7 +76,6 @@ public class Login {
 			String xpathExpression = TCData.getString("Login.loginXPath"); //$NON-NLS-1$
 			driver.findElement(By.xpath(xpathExpression)).click();
 
-			Thread.sleep(5000);
 			return driver;
 
 		} catch (Exception e) {

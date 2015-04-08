@@ -14,6 +14,7 @@ import ui.test.cases.Login;
 import ui.test.cases.TCData;
 import ui.test.constant.TCResult;
 import ui.test.tools.ReportTool;
+import ui.test.tools.TimeTool;
 
 /**
  * @author chenguangjian 2015年3月30日 下午5:29:39
@@ -103,6 +104,7 @@ public class LoginTest {
 		logger.info(tcKey);
 		WebDriver driver = login.doLogin(tcKey);
 
+		TimeTool.delayMilliSeconds(5000);
 		String curUrl = driver.getCurrentUrl();
 		String afterLoginUrl = "http://dev.qjdchina.com/front/member/apply.htm";
 
