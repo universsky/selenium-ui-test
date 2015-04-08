@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public final class SpringUtil {
 
 	private static ApplicationContext ctx = new ClassPathXmlApplicationContext(
-			"/spring/spring-qjd-uitest.xml");
+			new String[] { "/spring/spring-qjd-uitest.xml" });
 
 	// private static ApplicationContext ctxDev = new
 	// ClassPathXmlApplicationContext(

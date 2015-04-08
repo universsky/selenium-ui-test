@@ -13,4 +13,5 @@ public class Const {
 	public final static String timestamp = new SimpleDateFormat(
 			"yyyyMMddHHmmss").format(new Date());
 	public final static String uploadUrl = "http://localhost:8080/UploadFileToServer/upload/up";
+	public static String reportPath = "http://test.qjdchina.com:8080/UploadFileToServer/up/report.html?timestamp=";
 }

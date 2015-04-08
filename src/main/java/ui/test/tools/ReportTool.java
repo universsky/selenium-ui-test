@@ -29,7 +29,7 @@ public class ReportTool {
 
 		File f = WebTool.takeScreenShot(driver, tcKey);
 		String imgName = f.getName();
-		System.out.println(imgName);
+		// System.out.println(imgName);
 
 		DBTool DBTool = new DBTool();
 		DBTool.insertImgName(tcKey, Const.timestamp, imgName, tcResult);

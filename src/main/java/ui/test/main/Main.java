@@ -8,13 +8,12 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriverException;
 
 import ui.test.constant.Const;
-import ui.test.jdbc.cases.LoginTest;
-import ui.test.jdbc.cases.RegisterTest;
 
 /**
  * @author chenguangjian
  *
  */
+
 public class Main {
 
 	/**
