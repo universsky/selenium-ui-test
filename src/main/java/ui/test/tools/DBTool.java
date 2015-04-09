@@ -25,9 +25,12 @@ public class DBTool {
 		String timestamp = "20150401203951";
 		String imgName = "20150401203951_LoginTest.jslogin_UserNameNotExistTest.jpeg";
 		String tcResult = "PASS";
+		String expected = "TRUE";
+		String actual = "TRUE";
 
 		DBTool DBTool = new DBTool();
-		DBTool.insertImgName(tcKey, timestamp, imgName, tcResult);
+		DBTool.insertImgName(tcKey, timestamp, imgName, tcResult, expected,
+				actual);
 
 		String v = DBTool.getTcValueBytcKey(tcKey);
 		System.out.println(v);
@@ -58,10 +61,11 @@ public class DBTool {
 	 * @return
 	 */
 	public int insertImgName(String tcKey, String timestamp, String imgName,
-			String tcResult) {
+			String tcResult, String expected, String actual) {
 
-		String sql = " INSERT INTO t_uitest_result(tc_key,timestamp,img_name,tc_result) VALUES (?,?,?,?) ";
-		Object params[] = new Object[] { tcKey, timestamp, imgName, tcResult };
+		String sql = " INSERT INTO t_uitest_result(tc_key,timestamp,img_name,tc_result,expected,actual) VALUES (?,?,?,?,?,?) ";
+		Object params[] = new Object[] { tcKey, timestamp, imgName, tcResult,
+				expected, actual };
 
 		// System.out.println(jdbcTemplate);
 

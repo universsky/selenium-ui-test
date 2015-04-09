@@ -5,6 +5,7 @@ package ui.test.main;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.slf4j.Logger;
@@ -41,7 +42,9 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 
 	}
 
@@ -58,7 +61,9 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 
 	}
 
@@ -74,7 +79,9 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 
 	}
 
@@ -92,7 +99,9 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 
 	}
 
@@ -102,17 +111,20 @@ public class LoginTest {
 		// 5. solution test
 		String tcKey = "LoginTest.SolutionTest";
 		logger.info(tcKey);
+
 		WebDriver driver = login.doLogin(tcKey);
 
-		TimeTool.delayMilliSeconds(5000);
+		TimeTool.delayMilliSeconds(5000L);
 
 		String curUrl = driver.getCurrentUrl();
-		String afterLoginUrl = "http://dev.qjdchina.com/front/member/apply.htm";
+		String afterLoginUrl = TCData.getString("LoginTest.afterLoginUrl");
 
 		String tcResult = afterLoginUrl.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 
 	}
 

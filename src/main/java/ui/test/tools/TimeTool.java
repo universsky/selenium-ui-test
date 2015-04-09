@@ -16,7 +16,8 @@ public class TimeTool {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		long milliseconds = 3000L;
+		delayMilliSeconds(milliseconds);
 
 	}
 

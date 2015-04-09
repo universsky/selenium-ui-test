@@ -13,8 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations = { "file:src/main/resources/spring/spring-qjd-uitest.xml" })
 public class RegisterDataTest {
 
-	@Autowired
-	private RegisterData registerData;
+	private RegisterData registerData = new RegisterData();
 
 	@Test
 	public void testGetLoginName() {

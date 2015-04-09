@@ -27,7 +27,7 @@ public class Register {
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
 	private WebDriver driver;
 
-	public void init() {
+	public synchronized void init() {
 		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
 				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -53,7 +53,7 @@ public class Register {
 		// // WebDriver driver = new InternetExplorerDriver();
 	}
 
-	public WebDriver doRegister(String tcKey) {
+	public synchronized WebDriver doRegister(String tcKey) {
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
@@ -73,14 +73,14 @@ public class Register {
 			//					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
 			// .click();
 
-			// check the agree box
-			driver.findElement(
-					By.xpath(TCData.getString("Register.agree_check"))).click(); //$NON-NLS-1$
-
-			// click button register
-			driver.findElement(
-					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
-					.click();
+			// // check the agree box
+			// driver.findElement(
+			//					By.xpath(TCData.getString("Register.agree_check"))).click(); //$NON-NLS-1$
+			//
+			// // click button register
+			// driver.findElement(
+			//					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
+			// .click();
 
 			return driver;
 

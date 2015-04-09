@@ -25,6 +25,7 @@ public class Main {
 			IOException {
 		Main m = new Main();
 		m.goTest();
+
 		m.report();
 	}
 

@@ -45,7 +45,9 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 		assertEquals(true, url.equals(curUrl));
 
 	}
@@ -63,7 +65,9 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 		assertEquals(true, url.equals(curUrl));
 
 	}
@@ -80,7 +84,9 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 		assertEquals(true, url.equals(curUrl));
 
 	}
@@ -99,7 +105,9 @@ public class LoginTest {
 		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 		assertEquals(true, url.equals(curUrl));
 
 	}
@@ -113,11 +121,13 @@ public class LoginTest {
 		WebDriver driver = login.doLogin(tcKey);
 
 		String curUrl = driver.getCurrentUrl();
-		String afterLoginUrl = "http://dev.qjdchina.com/front/member/apply.htm";
+		String afterLoginUrl = TCData.getString("LoginTest.afterLoginUrl");
 		String tcResult = afterLoginUrl.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
+		String expected = url;
+		String actual = curUrl;
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 
 		assertEquals(true, afterLoginUrl.equals(curUrl));
 

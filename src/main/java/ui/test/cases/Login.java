@@ -25,6 +25,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import ui.test.constant.Const;
 import ui.test.tools.DBTool;
 import ui.test.tools.ReportTool;
+import ui.test.tools.TimeTool;
 import ui.test.tools.WebTool;
 
 /**
@@ -35,7 +36,7 @@ public class Login {
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
 	private WebDriver driver;
 
-	public void init() {
+	public synchronized void init() {
 		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
 				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -65,7 +66,7 @@ public class Login {
 	 * 
 	 * @param tcKey
 	 */
-	public WebDriver doLogin(String tcKey) {
+	public synchronized WebDriver doLogin(String tcKey) {
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
@@ -73,8 +74,10 @@ public class Login {
 
 			driver.get(url);
 			((JavascriptExecutor) driver).executeScript(tcValue);
-			String xpathExpression = TCData.getString("Login.loginXPath"); //$NON-NLS-1$
-			driver.findElement(By.xpath(xpathExpression)).click();
+			// ((JavascriptExecutor) driver).executeAsyncScript(tcValue);
+			//			String xpathExpression = TCData.getString("Login.loginXPath"); //$NON-NLS-1$
+			// driver.findElement(By.xpath(xpathExpression)).click();
+			// TimeTool.delayMilliSeconds(5000L);
 
 			return driver;
 

@@ -51,8 +51,10 @@ public class RegisterTest {
 		String tcResult = registerData.getLoginName("13291801306").size() > 0 ? TCResult.PASS
 				.getMsg() : TCResult.FAIL.getMsg();
 
-		ReportTool.record(tcKey, driver, tcResult);
-
+		String expected = String.valueOf(registerData.getLoginName(
+				"13291801306").size() > 0);
+		String actual = String.valueOf(true);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 		assertEquals(true, registerData.getLoginName("13291801306").size() > 0);
 
 	}
