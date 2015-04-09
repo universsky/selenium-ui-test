@@ -29,7 +29,7 @@ public class MemberRegisterTest {
 
 	public void 解决方案测试() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.解决方案测试";
+		String tcKey = "MemberRegister.SolutionTest";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -47,7 +47,7 @@ public class MemberRegisterTest {
 
 	public void 公司名称3位中文() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.公司名称3位中文";
+		String tcKey = "MemberRegister.Company3Words";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -64,7 +64,7 @@ public class MemberRegisterTest {
 
 	public void 公司名称26位中文() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.公司名称26位中文";
+		String tcKey = "MemberRegister.Company26Words";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -81,7 +81,7 @@ public class MemberRegisterTest {
 
 	public void 公司名称英文() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.公司名称英文";
+		String tcKey = "MemberRegister.CompanyEnglishName";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -98,7 +98,7 @@ public class MemberRegisterTest {
 
 	public void 公司名称非法字符() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.公司名称非法字符";
+		String tcKey = "MemberRegister.CompanyIllegalChars";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -115,7 +115,7 @@ public class MemberRegisterTest {
 
 	public void 办公地址空校验() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.办公地址空校验";
+		String tcKey = "MemberRegister.AddressNull";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -132,7 +132,7 @@ public class MemberRegisterTest {
 
 	public void 工商注册号空校验() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.工商注册号空校验";
+		String tcKey = "MemberRegister.RegCodeNull";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -149,7 +149,7 @@ public class MemberRegisterTest {
 
 	public void 工商注册号1位数字() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.工商注册号1位数字";
+		String tcKey = "MemberRegister.RegCode1Digits";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -166,7 +166,7 @@ public class MemberRegisterTest {
 
 	public void 工商注册号14位数字() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.工商注册号14位数字";
+		String tcKey = "MemberRegister.RegCode14Digits";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -183,7 +183,7 @@ public class MemberRegisterTest {
 
 	public void 办公地址20个字() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.办公地址20个字";
+		String tcKey = "MemberRegister.Address20Words";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -200,7 +200,7 @@ public class MemberRegisterTest {
 
 	public void 办公地址51个字() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.办公地址51个字";
+		String tcKey = "MemberRegister.Address51Words";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -217,7 +217,7 @@ public class MemberRegisterTest {
 
 	public void 办公地址3个字() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.办公地址3个字";
+		String tcKey = "MemberRegister.Address3Words";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -234,7 +234,7 @@ public class MemberRegisterTest {
 
 	public void 法定代表人6个字() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.法定代表人6个字";
+		String tcKey = "MemberRegister.Legal6Words";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -251,7 +251,7 @@ public class MemberRegisterTest {
 
 	public void 法定代表人5个字() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.法定代表人5个字";
+		String tcKey = "MemberRegister.Legal5Words";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -268,7 +268,7 @@ public class MemberRegisterTest {
 
 	public void 法定代表人1个字() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.法定代表人1个字";
+		String tcKey = "MemberRegister.Legal1Words";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);
@@ -285,7 +285,7 @@ public class MemberRegisterTest {
 
 	public void 法定代表人空校验() throws WebDriverException, IOException {
 
-		String tcKey = "MemberRegister.法定代表人空校验";
+		String tcKey = "MemberRegister.LegalNull";
 		logger.info(tcKey);
 
 		WebDriver driver = memberRegister.doMemberRegister(tcKey);

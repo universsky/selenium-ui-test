@@ -44,10 +44,11 @@ public class Main {
 
 		MemberRegisterTest memberRegisterTest = new MemberRegisterTest();
 
-		memberRegisterTest.公司名称非法字符();
+		memberRegisterTest.解决方案测试();
 		memberRegisterTest.公司名称英文();
 		memberRegisterTest.公司名称3位中文();
 		memberRegisterTest.公司名称26位中文();
+		memberRegisterTest.公司名称非法字符();
 		memberRegisterTest.办公地址3个字();
 		memberRegisterTest.办公地址51个字();
 		memberRegisterTest.办公地址20个字();
@@ -59,7 +60,6 @@ public class Main {
 		memberRegisterTest.法定代表人5个字();
 		memberRegisterTest.法定代表人6个字();
 		memberRegisterTest.法定代表人空校验();
-		memberRegisterTest.解决方案测试();
 
 	}
 
