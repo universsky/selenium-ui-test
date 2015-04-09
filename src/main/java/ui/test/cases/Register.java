@@ -25,9 +25,12 @@ import ui.test.tools.ReportTool;
 public class Register {
 
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
-	private WebDriver driver;
 
 	public synchronized void init() {
+
+	}
+
+	public synchronized WebDriver doRegister(String tcKey) {
 		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
 				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -35,7 +38,7 @@ public class Register {
 				TCData.getString("LoginTest.firefox_profile_path"))); //$NON-NLS-1$
 		capabilities.setCapability(FirefoxDriver.PROFILE, firefoxprofile);
 
-		driver = new FirefoxDriver(capabilities);
+		WebDriver driver = new FirefoxDriver(capabilities);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		java.awt.Dimension screenSize = Toolkit.getDefaultToolkit()
@@ -51,9 +54,6 @@ public class Register {
 		Point targetPosition = new Point(0, 0);
 		driver.manage().window().setPosition(targetPosition);
 		// // WebDriver driver = new InternetExplorerDriver();
-	}
-
-	public synchronized WebDriver doRegister(String tcKey) {
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 

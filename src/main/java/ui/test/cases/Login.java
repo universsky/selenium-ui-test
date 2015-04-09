@@ -34,9 +34,17 @@ import ui.test.tools.WebTool;
 public class Login {
 
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
-	private WebDriver driver;
 
 	public synchronized void init() {
+
+	}
+
+	/**
+	 * 
+	 * @param tcKey
+	 */
+	public synchronized WebDriver doLogin(String tcKey) {
+
 		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
 				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -44,7 +52,7 @@ public class Login {
 				TCData.getString("LoginTest.firefox_profile_path"))); //$NON-NLS-1$
 		capabilities.setCapability(FirefoxDriver.PROFILE, firefoxprofile);
 
-		driver = new FirefoxDriver(capabilities);
+		WebDriver driver = new FirefoxDriver(capabilities);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		java.awt.Dimension screenSize = Toolkit.getDefaultToolkit()
@@ -60,13 +68,6 @@ public class Login {
 		Point targetPosition = new Point(0, 0);
 		driver.manage().window().setPosition(targetPosition);
 		// // WebDriver driver = new InternetExplorerDriver();
-	}
-
-	/**
-	 * 
-	 * @param tcKey
-	 */
-	public synchronized WebDriver doLogin(String tcKey) {
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
@@ -77,7 +78,7 @@ public class Login {
 			// ((JavascriptExecutor) driver).executeAsyncScript(tcValue);
 			//			String xpathExpression = TCData.getString("Login.loginXPath"); //$NON-NLS-1$
 			// driver.findElement(By.xpath(xpathExpression)).click();
-			// TimeTool.delayMilliSeconds(5000L);
+			TimeTool.delayMilliSeconds(3000L);
 
 			return driver;
 

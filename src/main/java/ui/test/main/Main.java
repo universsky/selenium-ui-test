@@ -8,6 +8,7 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriverException;
 
 import ui.test.constant.Const;
+import ui.test.tools.TimeTool;
 
 /**
  * @author chenguangjian
@@ -33,9 +34,13 @@ public class Main {
 
 		LoginTest loginTest = new LoginTest();
 		loginTest.testLoginSolutionTest();
+
 		loginTest.testLoginPasswordIsEmpty();
+
 		loginTest.testLoginPasswordIsWrong();
+
 		loginTest.testLoginUserNameIsEmpty();
+
 		loginTest.testLoginUserNameNotExist();
 
 		RegisterTest registerTest = new RegisterTest();

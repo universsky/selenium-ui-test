@@ -28,7 +28,7 @@ public class RegisterTest {
 	private Register register = new Register();
 
 	public void testRegister() throws WebDriverException, IOException {
-		register.init();
+
 		String tcKey = "RegisterTest.RegisterTest";
 		logger.info(tcKey);
 		WebDriver driver = register.doRegister(tcKey);

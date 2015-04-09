@@ -43,7 +43,6 @@ public class RegisterTest {
 	@Test
 	@Transactional
 	public void testRegister() throws WebDriverException, IOException {
-		register.init();
 		String tcKey = "RegisterTest.RegisterTest";
 		WebDriver driver = register.doRegister(tcKey);
 		assertEquals(true, registerData.getLoginName("13291801306").size() > 0);

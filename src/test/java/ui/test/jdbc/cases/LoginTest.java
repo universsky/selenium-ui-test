@@ -34,7 +34,6 @@ public class LoginTest {
 	@Test
 	public void testLoginUserNameIsEmpty() throws WebDriverException,
 			IOException {
-		login.init();
 
 		// 1. userName is empty test
 		String tcKey = "LoginTest.UserNameIsEmptyTest";
@@ -55,7 +54,6 @@ public class LoginTest {
 	@Test
 	public void testLoginPasswordIsEmpty() throws WebDriverException,
 			IOException {
-		login.init();
 
 		String tcKey = "LoginTest.PasswordIsEmptyTest";
 		WebDriver driver = login.doLogin(tcKey);
@@ -75,7 +73,7 @@ public class LoginTest {
 	@Test
 	public void testLoginPasswordIsWrong() throws WebDriverException,
 			IOException {
-		login.init();
+
 		String tcKey = "LoginTest.PasswordIsWrongTest";
 		WebDriver driver = login.doLogin(tcKey);
 
@@ -94,7 +92,7 @@ public class LoginTest {
 	@Test
 	public void testLoginUserNameNotExist() throws WebDriverException,
 			IOException {
-		login.init();
+
 		// 4. UserNameNotExistTest
 		String tcKey = "LoginTest.UserNameNotExistTest";
 
@@ -114,7 +112,6 @@ public class LoginTest {
 
 	@Test
 	public void testLoginSolutionTest() throws WebDriverException, IOException {
-		login.init();
 
 		// 5. solution test
 		String tcKey = "LoginTest.SolutionTest";
