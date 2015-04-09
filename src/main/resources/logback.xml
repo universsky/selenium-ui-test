@@ -11,13 +11,14 @@
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<File>log/TServer.log</File>
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
+			<pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n
+			</pattern>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>log/TServer.log.%d{yyyy-MM-dd}.log</fileNamePattern>
 		</rollingPolicy>
 	</appender>
-	<logger name="com.ettrade" level="debug">
+	<logger name="com.ettrade" level="info">
 		<appender-ref ref="consoleAppender,fileAppender" />
 	</logger>
 	<root level="info">

@@ -4,18 +4,17 @@
 package ui.test.main;
 
 import java.io.IOException;
+import java.util.Set;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ui.test.cases.Login;
-import ui.test.cases.TCData;
 import ui.test.constant.TCResult;
 import ui.test.tools.ReportTool;
-import ui.test.tools.TimeTool;
 
 /**
  * @author chenguangjian 2015年3月30日 下午5:29:39
@@ -23,26 +22,25 @@ import ui.test.tools.TimeTool;
 public class LoginTest {
 	private static Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
-	private static final String url = TCData.getString("LoginTest.url");
-
-	private Login login = new Login();
-
 	public void testLoginUserNameIsEmpty() throws WebDriverException,
 			IOException {
 
 		// 1. userName is empty test
 		String tcKey = "LoginTest.UserNameIsEmptyTest";
 		logger.info(tcKey);
-
+		Login login = new Login();
 		WebDriver driver = login.doLogin(tcKey);
-		String curUrl = driver.getCurrentUrl();
 
-		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
+		Set<Cookie> cookies = driver.manage().getCookies();
+		logger.info("Cookies===============" + cookies);
+		String log = "Cookies===============" + cookies;
+		Cookie c = driver.manage().getCookieNamed("login_corpname");
+
+		String expected = "Null";
+		String actual = c == null ? "Null" : "NotNull";
+		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-
-		String expected = url;
-		String actual = curUrl;
-		ReportTool.record(tcKey, driver, tcResult, expected, actual);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
 
 	}
 
@@ -51,16 +49,19 @@ public class LoginTest {
 
 		String tcKey = "LoginTest.PasswordIsEmptyTest";
 		logger.info(tcKey);
+		Login login = new Login();
 		WebDriver driver = login.doLogin(tcKey);
 
-		String curUrl = driver.getCurrentUrl();
+		Set<Cookie> cookies = driver.manage().getCookies();
+		logger.info("Cookies===============" + cookies);
+		String log = "Cookies===============" + cookies;
+		Cookie c = driver.manage().getCookieNamed("login_corpname");
 
-		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
+		String expected = "Null";
+		String actual = c == null ? "Null" : "NotNull";
+		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-
-		String expected = url;
-		String actual = curUrl;
-		ReportTool.record(tcKey, driver, tcResult, expected, actual);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
 
 	}
 
@@ -69,16 +70,19 @@ public class LoginTest {
 
 		String tcKey = "LoginTest.PasswordIsWrongTest";
 		logger.info(tcKey);
+		Login login = new Login();
 		WebDriver driver = login.doLogin(tcKey);
 
-		String curUrl = driver.getCurrentUrl();
+		Set<Cookie> cookies = driver.manage().getCookies();
+		logger.info("Cookies===============" + cookies);
+		String log = "Cookies===============" + cookies;
+		Cookie c = driver.manage().getCookieNamed("login_corpname");
 
-		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
+		String expected = "Null";
+		String actual = c == null ? "Null" : "NotNull";
+		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-
-		String expected = url;
-		String actual = curUrl;
-		ReportTool.record(tcKey, driver, tcResult, expected, actual);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
 
 	}
 
@@ -88,17 +92,19 @@ public class LoginTest {
 		// 4. UserNameNotExistTest
 		String tcKey = "LoginTest.UserNameNotExistTest";
 		logger.info(tcKey);
-
+		Login login = new Login();
 		WebDriver driver = login.doLogin(tcKey);
 
-		String curUrl = driver.getCurrentUrl();
+		Set<Cookie> cookies = driver.manage().getCookies();
+		logger.info("Cookies===============" + cookies);
+		String log = "Cookies===============" + cookies;
+		Cookie c = driver.manage().getCookieNamed("login_corpname");
 
-		String tcResult = url.equals(curUrl) ? TCResult.PASS.getMsg()
+		String expected = "Null";
+		String actual = c == null ? "Null" : "NotNull";
+		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-
-		String expected = url;
-		String actual = curUrl;
-		ReportTool.record(tcKey, driver, tcResult, expected, actual);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
 
 	}
 
@@ -107,20 +113,25 @@ public class LoginTest {
 		// 5. solution test
 		String tcKey = "LoginTest.SolutionTest";
 		logger.info(tcKey);
-
+		Login login = new Login();
 		WebDriver driver = login.doLogin(tcKey);
 
-		TimeTool.delayMilliSeconds(5000L);
+		logger.info("Cookies===============" + driver.manage().getCookies());
+		String log = "Cookies===============" + driver.manage().getCookies();
+		Cookie c = driver.manage().getCookieNamed("login_corpname");
 
-		String curUrl = driver.getCurrentUrl();
-		String afterLoginUrl = TCData.getString("LoginTest.afterLoginUrl");
-
-		String tcResult = afterLoginUrl.equals(curUrl) ? TCResult.PASS.getMsg()
+		String expected = "default";
+		String actual = c.getValue();
+		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
 
-		String expected = afterLoginUrl;
-		String actual = curUrl;
-		ReportTool.record(tcKey, driver, tcResult, expected, actual);
+		// String curUrl = driver.getCurrentUrl();
+		// String afterLoginUrl = TCData.getString("LoginTest.afterLoginUrl");
+		//
+		// String tcResult = afterLoginUrl.equals(curUrl) ?
+		// TCResult.PASS.getMsg()
+		// : TCResult.FAIL.getMsg();
 
 	}
 

@@ -21,17 +21,20 @@ public class DBTool {
 
 	public static void main(String[] args) {
 
-		String tcKey = "LoginTest.jslogin_UserNameIsEmptyTest";
-		String timestamp = "20150401203951";
-		String imgName = "20150401203951_LoginTest.jslogin_UserNameNotExistTest.jpeg";
-		String tcResult = "PASS";
-		String expected = "TRUE";
-		String actual = "TRUE";
-
+		String tcKey = "MemberRegister.解决方案测试";
+		// tcKey = "LoginTest.PasswordIsEmptyTest";
+		// String timestamp = "20150401203951";
+		// String imgName =
+		// "20150401203951_LoginTest.jslogin_UserNameNotExistTest.jpeg";
+		// String tcResult = "PASS";
+		// String expected = "TRUE";
+		// String actual = "TRUE";
+		// String log =
+		// "Cookies===============[login_corpname=default; path=/; domain=dev.qjdchina.com, login_username=13291801308; path=/; domain=dev.qjdchina.com, JSESSIONID=BEDCF845F28ED0093B72347F3C0D2C08; path=/front/; domain=dev.qjdchina.com]";
 		DBTool DBTool = new DBTool();
-		DBTool.insertImgName(tcKey, timestamp, imgName, tcResult, expected,
-				actual);
-
+		// DBTool.insertTcResult(tcKey, timestamp, imgName, tcResult, expected,
+		// actual, log);
+		System.out.println(tcKey);
 		String v = DBTool.getTcValueBytcKey(tcKey);
 		System.out.println(v);
 	}
@@ -47,6 +50,7 @@ public class DBTool {
 			public void processRow(ResultSet rs) throws SQLException {
 
 				tcValue[0] = rs.getString("tc_value");
+				// System.out.println(rs);
 			}
 		});
 
@@ -60,12 +64,12 @@ public class DBTool {
 	 * @param imgName
 	 * @return
 	 */
-	public int insertImgName(String tcKey, String timestamp, String imgName,
-			String tcResult, String expected, String actual) {
+	public int insertTcResult(String tcKey, String timestamp, String imgName,
+			String tcResult, String expected, String actual, String log) {
 
-		String sql = " INSERT INTO t_uitest_result(tc_key,timestamp,img_name,tc_result,expected,actual) VALUES (?,?,?,?,?,?) ";
+		String sql = " INSERT INTO t_uitest_result(tc_key,timestamp,img_name,tc_result,expected,actual,log) VALUES (?,?,?,?,?,?,?) ";
 		Object params[] = new Object[] { tcKey, timestamp, imgName, tcResult,
-				expected, actual };
+				expected, actual, log };
 
 		// System.out.println(jdbcTemplate);
 

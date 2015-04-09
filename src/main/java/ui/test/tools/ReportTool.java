@@ -25,16 +25,16 @@ public class ReportTool {
 	 * @throws IOException
 	 */
 	public static void record(String tcKey, WebDriver driver, String tcResult,
-			String expected, String actual) throws WebDriverException,
-			IOException {
+			String expected, String actual, String log)
+			throws WebDriverException, IOException {
 
 		File f = WebTool.takeScreenShot(driver, tcKey);
 		String imgName = f.getName();
 		// System.out.println(imgName);
 
 		DBTool DBTool = new DBTool();
-		DBTool.insertImgName(tcKey, Const.timestamp, imgName, tcResult,
-				expected, actual);
+		DBTool.insertTcResult(tcKey, Const.timestamp, imgName, tcResult,
+				expected, actual, log);
 
 		WebTool.upload(Const.uploadUrl, f);
 

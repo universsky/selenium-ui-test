@@ -6,11 +6,13 @@ package ui.test.cases;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -35,9 +37,6 @@ public class Login {
 
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
 
-	public synchronized void init() {
-
-	}
 
 	/**
 	 * 

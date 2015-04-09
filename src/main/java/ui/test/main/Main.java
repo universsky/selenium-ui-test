@@ -34,17 +34,32 @@ public class Main {
 
 		LoginTest loginTest = new LoginTest();
 		loginTest.testLoginSolutionTest();
-
 		loginTest.testLoginPasswordIsEmpty();
-
 		loginTest.testLoginPasswordIsWrong();
-
 		loginTest.testLoginUserNameIsEmpty();
-
 		loginTest.testLoginUserNameNotExist();
 
 		RegisterTest registerTest = new RegisterTest();
 		registerTest.testRegister();
+
+		MemberRegisterTest memberRegisterTest = new MemberRegisterTest();
+
+		memberRegisterTest.公司名称非法字符();
+		memberRegisterTest.公司名称英文();
+		memberRegisterTest.公司名称3位中文();
+		memberRegisterTest.公司名称26位中文();
+		memberRegisterTest.办公地址3个字();
+		memberRegisterTest.办公地址51个字();
+		memberRegisterTest.办公地址20个字();
+		memberRegisterTest.办公地址空校验();
+		memberRegisterTest.工商注册号14位数字();
+		memberRegisterTest.工商注册号1位数字();
+		memberRegisterTest.工商注册号空校验();
+		memberRegisterTest.法定代表人1个字();
+		memberRegisterTest.法定代表人5个字();
+		memberRegisterTest.法定代表人6个字();
+		memberRegisterTest.法定代表人空校验();
+		memberRegisterTest.解决方案测试();
 
 	}
 

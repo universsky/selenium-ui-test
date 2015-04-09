@@ -38,7 +38,8 @@ public class RegisterTest {
 		String expected = String.valueOf(registerData.getLoginName(
 				"13291801306").size() > 0);
 		String actual = String.valueOf(true);
-		ReportTool.record(tcKey, driver, tcResult, expected, actual);
+		String log = "";
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
 
 	}
 }

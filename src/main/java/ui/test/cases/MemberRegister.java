@@ -15,18 +15,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import ui.test.constant.Const;
 import ui.test.tools.DBTool;
-import ui.test.tools.ReportTool;
+import ui.test.tools.TimeTool;
 
 /**
- * @author chenguangjian 2015年3月30日 下午5:24:21
+ * @author chenguangjian
+ *
  */
-public class Register {
+public class MemberRegister {
+	private static Logger logger = LoggerFactory
+			.getLogger(MemberRegister.class);
 
-	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
+	public synchronized WebDriver doMemberRegister(String tcKey) {
 
-	public synchronized WebDriver doRegister(String tcKey) {
 		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
 				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -55,28 +60,22 @@ public class Register {
 
 		try {
 
-			driver.get(url);
+			driver.get(Const.homeUrl);
+			TimeTool.delayMilliSeconds(1000L);
+			logger.info(tcValue);
 
-			// click free register
+			// 未注册会员用户，登陆
+			((JavascriptExecutor) driver).executeScript(new DBTool()
+					.getTcValueBytcKey("LoginTest.SolutionTest未申请会员"));
+
+			TimeTool.delayMilliSeconds(1000L);
+
+			((JavascriptExecutor) driver).executeScript(tcValue);
+
 			driver.findElement(
-					By.xpath(TCData.getString("Register.free_register"))) //$NON-NLS-1$
+					By.xpath(TCData.getString("MemberRegister.submit_button")))
 					.click();
-
-			((JavascriptExecutor) driver).executeScript(tcValue); //$NON-NLS-1$
-
-			// register
-			// driver.findElement(
-			//					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
-			// .click();
-
-			// // check the agree box
-			// driver.findElement(
-			//					By.xpath(TCData.getString("Register.agree_check"))).click(); //$NON-NLS-1$
-			//
-			// // click button register
-			// driver.findElement(
-			//					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
-			// .click();
+			TimeTool.delayMilliSeconds(1000L);
 
 			return driver;
 

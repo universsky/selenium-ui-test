@@ -24,8 +24,8 @@
 	<!-- define a dataSource using dbcp -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
-		p:url="jdbc:mysql://127.0.0.1:3306/ui_test" p:username="root"
-		p:password="root">
+		p:url="jdbc:mysql://127.0.0.1:3306/ui_test?useUnicode=true&amp;characterEncoding=utf8"
+		p:username="root" p:password="root">
 	</bean>
 
 	<!-- define a jdbcTemplate -->
