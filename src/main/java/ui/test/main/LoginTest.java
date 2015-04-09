@@ -122,7 +122,7 @@ public class LoginTest {
 		String tcResult = afterLoginUrl.equals(curUrl) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
-		String expected = url;
+		String expected = afterLoginUrl;
 		String actual = curUrl;
 		ReportTool.record(tcKey, driver, tcResult, expected, actual);
 
