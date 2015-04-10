@@ -12,6 +12,11 @@ import java.util.Date;
 public class Const {
 	public final static String timestamp = new SimpleDateFormat(
 			"yyyyMMddHHmmss").format(new Date());
+	public final static String homeUrl = "http://dev.qjdchina.com/";
+	public final static String 会员注册Url = "http://dev.qjdchina.com/front/member/apply.htm";
+	public final static String 会员中心Url = "http://dev.qjdchina.com/front/member/corpinfo.htm";
+	public final static String 新增合作厂家Url = "http://dev.qjdchina.com/front/member/partners.htm";
+
 	public final static String uploadUrl = "http://localhost:8080/UploadFileToServer/upload/up";
-	public static String reportPath = "http://test.qjdchina.com:8080/UploadFileToServer/up/report.html?timestamp=";
+	public final static String reportPath = "http://test.qjdchina.com:8080/UploadFileToServer/up/report.html?timestamp=";
 }

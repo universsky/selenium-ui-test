@@ -28,7 +28,7 @@ public class Register {
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
 
 	public synchronized WebDriver doRegister(String tcKey) {
-		WebDriver driver = WebTool.initWebDriver();
+		WebDriver driver = WebTool.initFirefoxDriver();
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 

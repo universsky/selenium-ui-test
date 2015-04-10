@@ -22,8 +22,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import ui.test.cases.TCData;
@@ -34,7 +37,21 @@ import ui.test.constant.Const;
  */
 public class WebTool {
 
-	public static WebDriver initWebDriver() {
+	public static void main(String[] args) {
+		WebDriver driver = null;
+
+		driver = WebTool.initInternetExplorerDriver();
+		driver.get("http://www.baidu.com");
+
+		driver = WebTool.initFirefoxDriver();
+		driver.get("http://www.baidu.com");
+
+		driver = WebTool.initChromeDriver();
+		driver.get("http://www.baidu.com");
+
+	}
+
+	public static WebDriver initFirefoxDriver() {
 
 		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
 				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
@@ -44,6 +61,7 @@ public class WebTool {
 		capabilities.setCapability(FirefoxDriver.PROFILE, firefoxprofile);
 
 		WebDriver driver = new FirefoxDriver(capabilities);
+
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		java.awt.Dimension screenSize = Toolkit.getDefaultToolkit()
@@ -59,6 +77,29 @@ public class WebTool {
 		Point targetPosition = new Point(0, 0);
 		driver.manage().window().setPosition(targetPosition);
 		// // WebDriver driver = new InternetExplorerDriver();
+		return driver;
+
+	}
+
+	public static WebDriver initChromeDriver() {
+
+		System.setProperty("webdriver.chrome.driver",
+				TCData.getString("chrome_bin_path"));
+
+		WebDriver driver = new ChromeDriver();
+		ChromeOptions ChromeOptions = new ChromeOptions();
+
+		return driver;
+
+	}
+
+	public static WebDriver initInternetExplorerDriver() {
+
+		System.setProperty("webdriver.ie.driver",
+				TCData.getString("ie_bin_path"));
+
+		WebDriver driver = new InternetExplorerDriver();
+
 		return driver;
 
 	}

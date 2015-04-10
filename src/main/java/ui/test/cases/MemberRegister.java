@@ -33,7 +33,7 @@ public class MemberRegister {
 
 	public synchronized WebDriver doMemberRegister(String tcKey) {
 
-		WebDriver driver = WebTool.initWebDriver();
+		WebDriver driver = WebTool.initFirefoxDriver();
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 

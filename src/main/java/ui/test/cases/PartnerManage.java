@@ -25,7 +25,7 @@ public class PartnerManage {
 
 	public synchronized WebDriver doAddPartner(String tcKey) {
 
-		WebDriver driver = WebTool.initWebDriver();
+		WebDriver driver = WebTool.initFirefoxDriver();
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 

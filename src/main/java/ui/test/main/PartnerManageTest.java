@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 
 import ui.test.cases.PartnerManage;
 import ui.test.cases.TCData;
-import ui.test.constant.Const;
 import ui.test.constant.TCResult;
 import ui.test.jdbc.data.PartnerData;
 import ui.test.tools.ReportTool;
@@ -29,7 +28,8 @@ public class PartnerManageTest {
 
 	PartnerManage PartnerManage = new PartnerManage();
 
-	public void 新增合作厂家测试() throws WebDriverException, IOException {
+	public void 新增合作厂家测试(WebDriver driver) throws WebDriverException,
+			IOException {
 
 		String tcKey = "PartnerManage.AddPartner";
 		logger.info(tcKey);
@@ -43,7 +43,7 @@ public class PartnerManageTest {
 		partnerData.deletePartnerName(loginName, partnerName);
 
 		// add partner
-		WebDriver driver = PartnerManage.doAddPartner(tcKey);
+		driver = PartnerManage.doAddPartner(tcKey);
 
 		// check db data
 		String[] partners = partnerData.getPartnerNamesByLoginName(loginName);
