@@ -27,11 +27,12 @@ public class RegisterTest {
 
 	private Register register = new Register();
 
-	public void testRegister() throws WebDriverException, IOException {
+	public void testRegister(WebDriver driver) throws WebDriverException,
+			IOException {
 
 		String tcKey = "RegisterTest.RegisterTest";
 		logger.info(tcKey);
-		WebDriver driver = register.doRegister(tcKey);
+		driver = register.doRegister(tcKey);
 
 		String tcResult = registerData.getLoginName("13291801306").size() > 0 ? TCResult.PASS
 				.getMsg() : TCResult.FAIL.getMsg();
