@@ -4,6 +4,8 @@
 package ui.test.main;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -30,58 +32,67 @@ public class AMain {
 			IOException {
 		AMain m = new AMain();
 
+		// chrome
+		String timestamp = new SimpleDateFormat("yyyyMMddHHmmss")
+				.format(new Date());
 		driver = WebTool.initChromeDriver();
-		m.goTest(driver);
+		m.goTest(driver, timestamp);
+
+		// internet explorer
 		driver = WebTool.initInternetExplorerDriver();
-		m.goTest(driver);
+		timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		m.goTest(driver, timestamp);
+
+		// firefox
 		driver = WebTool.initFirefoxDriver();
-		m.goTest(driver);
+		timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		m.goTest(driver, timestamp);
 
 	}
 
-	private void goTest(WebDriver driver) throws WebDriverException,
-			IOException {
+	private void goTest(WebDriver driver, String timestamp)
+			throws WebDriverException, IOException {
 
 		LoginTest loginTest = new LoginTest();
-		loginTest.testLoginSolutionTest(driver);
-		loginTest.testLoginPasswordIsEmpty(driver);
-		loginTest.testLoginPasswordIsWrong(driver);
-		loginTest.testLoginUserNameIsEmpty(driver);
-		loginTest.testLoginUserNameNotExist(driver);
+		loginTest.testLoginSolutionTest(driver, timestamp);
+		loginTest.testLoginPasswordIsEmpty(driver, timestamp);
+		loginTest.testLoginPasswordIsWrong(driver, timestamp);
+		loginTest.testLoginUserNameIsEmpty(driver, timestamp);
+		loginTest.testLoginUserNameNotExist(driver, timestamp);
 
 		RegisterTest registerTest = new RegisterTest();
-		registerTest.testRegister(driver);
+		registerTest.testRegister(driver, timestamp);
 
 		MemberRegisterTest memberRegisterTest = new MemberRegisterTest();
 
-		memberRegisterTest.解决方案测试(driver);
-		memberRegisterTest.公司名称英文(driver);
-		memberRegisterTest.公司名称3位中文(driver);
-		memberRegisterTest.公司名称26位中文(driver);
-		memberRegisterTest.公司名称非法字符(driver);
-		memberRegisterTest.办公地址3个字(driver);
-		memberRegisterTest.办公地址51个字(driver);
-		memberRegisterTest.办公地址20个字(driver);
-		memberRegisterTest.办公地址空校验(driver);
-		memberRegisterTest.工商注册号14位数字(driver);
-		memberRegisterTest.工商注册号1位数字(driver);
-		memberRegisterTest.工商注册号空校验(driver);
-		memberRegisterTest.法定代表人1个字(driver);
-		memberRegisterTest.法定代表人5个字(driver);
-		memberRegisterTest.法定代表人6个字(driver);
-		memberRegisterTest.法定代表人空校验(driver);
+		memberRegisterTest.解决方案测试(driver, timestamp);
+		memberRegisterTest.公司名称英文(driver, timestamp);
+		memberRegisterTest.公司名称3位中文(driver, timestamp);
+		memberRegisterTest.公司名称26位中文(driver, timestamp);
+		memberRegisterTest.公司名称非法字符(driver, timestamp);
+		memberRegisterTest.办公地址3个字(driver, timestamp);
+		memberRegisterTest.办公地址51个字(driver, timestamp);
+		memberRegisterTest.办公地址20个字(driver, timestamp);
+		memberRegisterTest.办公地址空校验(driver, timestamp);
+		memberRegisterTest.工商注册号14位数字(driver, timestamp);
+		memberRegisterTest.工商注册号1位数字(driver, timestamp);
+		memberRegisterTest.工商注册号空校验(driver, timestamp);
+		memberRegisterTest.法定代表人1个字(driver, timestamp);
+		memberRegisterTest.法定代表人5个字(driver, timestamp);
+		memberRegisterTest.法定代表人6个字(driver, timestamp);
+		memberRegisterTest.法定代表人空校验(driver, timestamp);
 
 		PartnerManageTest PartnerManageTest = new PartnerManageTest();
-		PartnerManageTest.新增合作厂家测试(driver);
+		PartnerManageTest.新增合作厂家测试(driver, timestamp);
 
-		report();
+		report(timestamp);
 
 	}
 
-	private void report() {
+	private void report(String timestamp) {
 		if (java.awt.Desktop.isDesktopSupported()) {
 			try {
-				String reportUriStr = Const.reportPath + Const.timestamp;
+				String reportUriStr = Const.reportPath + timestamp;
 				// 创建一个URI实例
 				java.net.URI reportUri = java.net.URI.create(reportUriStr);
 

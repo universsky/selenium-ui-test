@@ -22,7 +22,7 @@ import ui.test.tools.ReportTool;
 public class LoginTest {
 	private static Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
-	public void testLoginUserNameIsEmpty(WebDriver driver)
+	public void testLoginUserNameIsEmpty(WebDriver driver, String timestamp)
 			throws WebDriverException, IOException {
 
 		// 1. userName is empty test
@@ -40,11 +40,12 @@ public class LoginTest {
 		String actual = c == null ? "Null" : "NotNull";
 		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
+				timestamp);
 
 	}
 
-	public void testLoginPasswordIsEmpty(WebDriver driver)
+	public void testLoginPasswordIsEmpty(WebDriver driver, String timestamp)
 			throws WebDriverException, IOException {
 
 		String tcKey = "LoginTest.PasswordIsEmptyTest";
@@ -61,11 +62,12 @@ public class LoginTest {
 		String actual = c == null ? "Null" : "NotNull";
 		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
+				timestamp);
 
 	}
 
-	public void testLoginPasswordIsWrong(WebDriver driver)
+	public void testLoginPasswordIsWrong(WebDriver driver, String timestamp)
 			throws WebDriverException, IOException {
 
 		String tcKey = "LoginTest.PasswordIsWrongTest";
@@ -82,11 +84,12 @@ public class LoginTest {
 		String actual = c == null ? "Null" : "NotNull";
 		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
+				timestamp);
 
 	}
 
-	public void testLoginUserNameNotExist(WebDriver driver)
+	public void testLoginUserNameNotExist(WebDriver driver, String timestamp)
 			throws WebDriverException, IOException {
 
 		// 4. UserNameNotExistTest
@@ -104,11 +107,12 @@ public class LoginTest {
 		String actual = c == null ? "Null" : "NotNull";
 		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
+				timestamp);
 
 	}
 
-	public void testLoginSolutionTest(WebDriver driver)
+	public void testLoginSolutionTest(WebDriver driver, String timestamp)
 			throws WebDriverException, IOException {
 
 		// 5. solution test
@@ -125,7 +129,8 @@ public class LoginTest {
 		String actual = c.getValue();
 		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
-		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
+				timestamp);
 
 		// String curUrl = driver.getCurrentUrl();
 		// String afterLoginUrl = TCData.getString("LoginTest.afterLoginUrl");
@@ -135,5 +140,4 @@ public class LoginTest {
 		// : TCResult.FAIL.getMsg();
 
 	}
-
 }

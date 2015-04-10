@@ -27,8 +27,8 @@ public class RegisterTest {
 
 	private Register register = new Register();
 
-	public void testRegister(WebDriver driver) throws WebDriverException,
-			IOException {
+	public void testRegister(WebDriver driver, String timestamp)
+			throws WebDriverException, IOException {
 
 		String tcKey = "RegisterTest.RegisterTest";
 		logger.info(tcKey);
@@ -40,7 +40,8 @@ public class RegisterTest {
 				"13291801306").size() > 0);
 		String actual = String.valueOf(true);
 		String log = "";
-		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
+				timestamp);
 
 	}
 }

@@ -28,8 +28,8 @@ public class PartnerManageTest {
 
 	PartnerManage PartnerManage = new PartnerManage();
 
-	public void 新增合作厂家测试(WebDriver driver) throws WebDriverException,
-			IOException {
+	public void 新增合作厂家测试(WebDriver driver, String timestamp)
+			throws WebDriverException, IOException {
 
 		String tcKey = "PartnerManage.AddPartner";
 		logger.info(tcKey);
@@ -61,7 +61,8 @@ public class PartnerManageTest {
 		for (String p : partners) {
 			log += p + "\n";
 		}
-		ReportTool.record(tcKey, driver, tcResult, expected, actual, log);
+		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
+				timestamp);
 
 	}
 }
