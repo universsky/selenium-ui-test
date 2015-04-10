@@ -125,8 +125,8 @@ public class LoginTest {
 		String log = "Cookies===============" + driver.manage().getCookies();
 		Cookie c = driver.manage().getCookieNamed("login_corpname");
 
-		String expected = "default";
-		String actual = c.getValue();
+		String expected = "NOT_EMPTY";
+		String actual = c.getValue().isEmpty() ? "EMPTY" : "NOT_EMPTY";
 		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
