@@ -19,6 +19,8 @@ import ui.test.tools.WebTool;
 
 public class AMain {
 
+	static WebDriver driver;
+
 	/**
 	 * @param args
 	 * @throws IOException
@@ -28,11 +30,13 @@ public class AMain {
 			IOException {
 		AMain m = new AMain();
 
-		WebDriver driver = WebTool.initFirefoxDriver();
-
+		driver = WebTool.initChromeDriver();
+		m.goTest(driver);
+		driver = WebTool.initInternetExplorerDriver();
+		m.goTest(driver);
+		driver = WebTool.initFirefoxDriver();
 		m.goTest(driver);
 
-		m.report();
 	}
 
 	private void goTest(WebDriver driver) throws WebDriverException,
@@ -69,6 +73,8 @@ public class AMain {
 
 		PartnerManageTest PartnerManageTest = new PartnerManageTest();
 		PartnerManageTest.新增合作厂家测试(driver);
+
+		report();
 
 	}
 
