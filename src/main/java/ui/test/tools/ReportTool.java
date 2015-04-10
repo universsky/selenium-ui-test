@@ -20,7 +20,44 @@ import ui.test.constant.Const;
 public class ReportTool {
 
 	/**
+	 * 
 	 * @param tcKey
+	 * @param driver
+	 * @param tcResult
+	 * @param expected
+	 * @param actual
+	 * @param log
+	 * @param timestamp
+	 * @throws WebDriverException
+	 * @throws IOException
+	 */
+
+	public static void record(String tcKey, WebDriver driver, String tcResult,
+			String expected, String actual, String log, String timestamp)
+			throws WebDriverException, IOException {
+
+		File f = WebTool.takeScreenShot(driver, tcKey);
+		String imgName = f.getName();
+		// System.out.println(imgName);
+
+		DBTool DBTool = new DBTool();
+		DBTool.insertTcResult(tcKey, timestamp, imgName, tcResult, expected,
+				actual, log);
+
+		WebTool.upload(Const.uploadUrl, f);
+
+		driver.close();
+
+	}
+
+	/**
+	 * 
+	 * @param tcKey
+	 * @param driver
+	 * @param tcResult
+	 * @param expected
+	 * @param actual
+	 * @param log
 	 * @throws WebDriverException
 	 * @throws IOException
 	 */
