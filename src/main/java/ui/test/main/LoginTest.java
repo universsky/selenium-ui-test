@@ -22,14 +22,14 @@ import ui.test.tools.ReportTool;
 public class LoginTest {
 	private static Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
-	public void testLoginUserNameIsEmpty() throws WebDriverException,
-			IOException {
+	public void testLoginUserNameIsEmpty(WebDriver driver)
+			throws WebDriverException, IOException {
 
 		// 1. userName is empty test
 		String tcKey = "LoginTest.UserNameIsEmptyTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		WebDriver driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey);
 
 		Set<Cookie> cookies = driver.manage().getCookies();
 		logger.info("Cookies===============" + cookies);
@@ -44,13 +44,13 @@ public class LoginTest {
 
 	}
 
-	public void testLoginPasswordIsEmpty() throws WebDriverException,
-			IOException {
+	public void testLoginPasswordIsEmpty(WebDriver driver)
+			throws WebDriverException, IOException {
 
 		String tcKey = "LoginTest.PasswordIsEmptyTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		WebDriver driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey);
 
 		Set<Cookie> cookies = driver.manage().getCookies();
 		logger.info("Cookies===============" + cookies);
@@ -65,13 +65,13 @@ public class LoginTest {
 
 	}
 
-	public void testLoginPasswordIsWrong() throws WebDriverException,
-			IOException {
+	public void testLoginPasswordIsWrong(WebDriver driver)
+			throws WebDriverException, IOException {
 
 		String tcKey = "LoginTest.PasswordIsWrongTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		WebDriver driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey);
 
 		Set<Cookie> cookies = driver.manage().getCookies();
 		logger.info("Cookies===============" + cookies);
@@ -86,14 +86,14 @@ public class LoginTest {
 
 	}
 
-	public void testLoginUserNameNotExist() throws WebDriverException,
-			IOException {
+	public void testLoginUserNameNotExist(WebDriver driver)
+			throws WebDriverException, IOException {
 
 		// 4. UserNameNotExistTest
 		String tcKey = "LoginTest.UserNameNotExistTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		WebDriver driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey);
 
 		Set<Cookie> cookies = driver.manage().getCookies();
 		logger.info("Cookies===============" + cookies);
@@ -108,13 +108,14 @@ public class LoginTest {
 
 	}
 
-	public void testLoginSolutionTest() throws WebDriverException, IOException {
+	public void testLoginSolutionTest(WebDriver driver)
+			throws WebDriverException, IOException {
 
 		// 5. solution test
 		String tcKey = "LoginTest.SolutionTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		WebDriver driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey);
 
 		logger.info("Cookies===============" + driver.manage().getCookies());
 		String log = "Cookies===============" + driver.manage().getCookies();

@@ -5,10 +5,12 @@ package ui.test.main;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 
 import ui.test.constant.Const;
 import ui.test.tools.TimeTool;
+import ui.test.tools.WebTool;
 
 /**
  * @author chenguangjian
@@ -25,44 +27,48 @@ public class AMain {
 	public static void main(String[] args) throws WebDriverException,
 			IOException {
 		AMain m = new AMain();
-		m.goTest();
+
+		WebDriver driver = WebTool.initFirefoxDriver();
+
+		m.goTest(driver);
 
 		m.report();
 	}
 
-	private void goTest() throws WebDriverException, IOException {
+	private void goTest(WebDriver driver) throws WebDriverException,
+			IOException {
 
 		LoginTest loginTest = new LoginTest();
-		loginTest.testLoginSolutionTest();
-		loginTest.testLoginPasswordIsEmpty();
-		loginTest.testLoginPasswordIsWrong();
-		loginTest.testLoginUserNameIsEmpty();
-		loginTest.testLoginUserNameNotExist();
+		loginTest.testLoginSolutionTest(driver);
+		loginTest.testLoginPasswordIsEmpty(driver);
+		loginTest.testLoginPasswordIsWrong(driver);
+		loginTest.testLoginUserNameIsEmpty(driver);
+		loginTest.testLoginUserNameNotExist(driver);
 
 		RegisterTest registerTest = new RegisterTest();
-		registerTest.testRegister();
+		registerTest.testRegister(driver);
 
 		MemberRegisterTest memberRegisterTest = new MemberRegisterTest();
 
-		memberRegisterTest.解决方案测试();
-		memberRegisterTest.公司名称英文();
-		memberRegisterTest.公司名称3位中文();
-		memberRegisterTest.公司名称26位中文();
-		memberRegisterTest.公司名称非法字符();
-		memberRegisterTest.办公地址3个字();
-		memberRegisterTest.办公地址51个字();
-		memberRegisterTest.办公地址20个字();
-		memberRegisterTest.办公地址空校验();
-		memberRegisterTest.工商注册号14位数字();
-		memberRegisterTest.工商注册号1位数字();
-		memberRegisterTest.工商注册号空校验();
-		memberRegisterTest.法定代表人1个字();
-		memberRegisterTest.法定代表人5个字();
-		memberRegisterTest.法定代表人6个字();
-		memberRegisterTest.法定代表人空校验();
+		memberRegisterTest.解决方案测试(driver);
+		memberRegisterTest.公司名称英文(driver);
+		memberRegisterTest.公司名称3位中文(driver);
+		memberRegisterTest.公司名称26位中文(driver);
+		memberRegisterTest.公司名称非法字符(driver);
+		memberRegisterTest.办公地址3个字(driver);
+		memberRegisterTest.办公地址51个字(driver);
+		memberRegisterTest.办公地址20个字(driver);
+		memberRegisterTest.办公地址空校验(driver);
+		memberRegisterTest.工商注册号14位数字(driver);
+		memberRegisterTest.工商注册号1位数字(driver);
+		memberRegisterTest.工商注册号空校验(driver);
+		memberRegisterTest.法定代表人1个字(driver);
+		memberRegisterTest.法定代表人5个字(driver);
+		memberRegisterTest.法定代表人6个字(driver);
+		memberRegisterTest.法定代表人空校验(driver);
 
 		PartnerManageTest PartnerManageTest = new PartnerManageTest();
-		PartnerManageTest.新增合作厂家测试();
+		PartnerManageTest.新增合作厂家测试(driver);
 
 	}
 
