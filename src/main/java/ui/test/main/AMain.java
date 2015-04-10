@@ -36,6 +36,7 @@ public class AMain {
 		String timestamp = new SimpleDateFormat("yyyyMMddHHmmss")
 				.format(new Date());
 		driver = WebTool.initChromeDriver();
+
 		m.goTest(driver, timestamp);
 
 		// internet explorer
@@ -50,7 +51,7 @@ public class AMain {
 
 	}
 
-	private void goTest(WebDriver driver, String timestamp)
+	private synchronized void goTest(WebDriver driver, String timestamp)
 			throws WebDriverException, IOException {
 
 		LoginTest loginTest = new LoginTest();
