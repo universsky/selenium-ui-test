@@ -16,13 +16,12 @@ import org.springframework.jdbc.core.RowCallbackHandler;
 
 public class DBTool {
 
-	private JdbcTemplate jdbcTemplate = (JdbcTemplate) SpringUtil
-			.getBean("jdbcTemplate");
+	private JdbcTemplate jdbcTemplateUItest = (JdbcTemplate) SpringUtil
+			.getBean("jdbcTemplateUItest");
 
 	public static void main(String[] args) {
 
-		String tcKey = "MemberRegister.解决方案测试";
-		// tcKey = "LoginTest.PasswordIsEmptyTest";
+		String tcKey = "LoginTest.PasswordIsEmptyTest";
 		// String timestamp = "20150401203951";
 		// String imgName =
 		// "20150401203951_LoginTest.jslogin_UserNameNotExistTest.jpeg";
@@ -44,13 +43,11 @@ public class DBTool {
 		Object params[] = new Object[] { tcKey };
 		String[] tcValue = { "" };
 		// System.out.println(jdbcTemplate);
-		jdbcTemplate.query(sql, params, new RowCallbackHandler() {
+		jdbcTemplateUItest.query(sql, params, new RowCallbackHandler() {
 
 			@Override
 			public void processRow(ResultSet rs) throws SQLException {
-
 				tcValue[0] = rs.getString("tc_value");
-				// System.out.println(rs);
 			}
 		});
 
@@ -73,7 +70,7 @@ public class DBTool {
 
 		// System.out.println(jdbcTemplate);
 
-		return jdbcTemplate.update(sql, params);
+		return jdbcTemplateUItest.update(sql, params);
 
 	}
 

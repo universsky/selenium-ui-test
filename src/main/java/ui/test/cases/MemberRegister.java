@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import ui.test.constant.Const;
 import ui.test.tools.DBTool;
 import ui.test.tools.TimeTool;
+import ui.test.tools.WebTool;
 
 /**
  * @author chenguangjian
@@ -32,29 +33,7 @@ public class MemberRegister {
 
 	public synchronized WebDriver doMemberRegister(String tcKey) {
 
-		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
-				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		FirefoxProfile firefoxprofile = new FirefoxProfile(new File(
-				TCData.getString("LoginTest.firefox_profile_path"))); //$NON-NLS-1$
-		capabilities.setCapability(FirefoxDriver.PROFILE, firefoxprofile);
-
-		WebDriver driver = new FirefoxDriver(capabilities);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		java.awt.Dimension screenSize = Toolkit.getDefaultToolkit()
-				.getScreenSize();
-		// set browser window size
-		Dimension targetSize = new Dimension(screenSize.width,
-				screenSize.height);
-		driver.manage().window().setSize(targetSize);
-		// set browser position
-
-		// Point targetPosition = new Point(screenSize.width,
-		// screenSize.height);
-		Point targetPosition = new Point(0, 0);
-		driver.manage().window().setPosition(targetPosition);
-		// // WebDriver driver = new InternetExplorerDriver();
+		WebDriver driver = WebTool.initWebDriver();
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
@@ -65,8 +44,9 @@ public class MemberRegister {
 			logger.info(tcValue);
 
 			// 未注册会员用户，登陆
-			((JavascriptExecutor) driver).executeScript(new DBTool()
-					.getTcValueBytcKey("LoginTest.SolutionTest未申请会员"));
+			((JavascriptExecutor) driver)
+					.executeScript(new DBTool()
+							.getTcValueBytcKey("LoginTest.SolutionTestNotMemberRegistered"));
 
 			TimeTool.delayMilliSeconds(1000L);
 

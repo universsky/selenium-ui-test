@@ -11,11 +11,10 @@ import org.openqa.selenium.WebDriverException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ui.test.cases.Login;
-import ui.test.cases.MemberRegister;
 import ui.test.constant.Const;
 import ui.test.constant.TCResult;
 import ui.test.tools.ReportTool;
+import ui.test.cases.*;
 
 /**
  * @author chenguangjian

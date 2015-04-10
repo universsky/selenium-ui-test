@@ -44,29 +44,7 @@ public class Login {
 	 */
 	public synchronized WebDriver doLogin(String tcKey) {
 
-		System.setProperty(TCData.getString("LoginTest.firefox_bin"), //$NON-NLS-1$
-				TCData.getString("LoginTest.firefox_bin_path")); //$NON-NLS-1$
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		FirefoxProfile firefoxprofile = new FirefoxProfile(new File(
-				TCData.getString("LoginTest.firefox_profile_path"))); //$NON-NLS-1$
-		capabilities.setCapability(FirefoxDriver.PROFILE, firefoxprofile);
-
-		WebDriver driver = new FirefoxDriver(capabilities);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		java.awt.Dimension screenSize = Toolkit.getDefaultToolkit()
-				.getScreenSize();
-		// set browser window size
-		Dimension targetSize = new Dimension(screenSize.width,
-				screenSize.height);
-		driver.manage().window().setSize(targetSize);
-		// set browser position
-
-		// Point targetPosition = new Point(screenSize.width,
-		// screenSize.height);
-		Point targetPosition = new Point(0, 0);
-		driver.manage().window().setPosition(targetPosition);
-		// // WebDriver driver = new InternetExplorerDriver();
+		WebDriver driver = WebTool.initWebDriver();
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 

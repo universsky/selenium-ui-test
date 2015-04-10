@@ -22,39 +22,59 @@
 
 	<!-- <util:properties id="salt" location="/spring/salt.properties" /> -->
 	<!-- define a dataSource using dbcp -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	<!-- ================================================================================== -->
+	<bean id="dataSourceUItest" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
 		p:url="jdbc:mysql://127.0.0.1:3306/ui_test?useUnicode=true&amp;characterEncoding=utf8"
 		p:username="root" p:password="root">
 	</bean>
 
 	<!-- define a jdbcTemplate -->
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
-		p:dataSource-ref="dataSource">
+	<bean id="jdbcTemplateUItest" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSourceUItest">
 	</bean>
 
 	<!-- define a transaction manager -->
-	<bean id="transactionManager"
+	<bean id="transactionManagerUItest"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-		p:dataSource-ref="dataSource">
+		p:dataSource-ref="dataSourceUItest">
 	</bean>
 
-
-	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource"
+	<!-- ================================================================================== -->
+	<bean id="dataSourceCifDev" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
-		p:url="jdbc:mysql://10.1.1.182:3306/cif_dev" p:username="cif_dev"
-		p:password="cif_dev@123">
+		p:url="jdbc:mysql://10.1.1.182:3306/cif_dev?useUnicode=true&amp;characterEncoding=utf8"
+		p:username="cif_dev" p:password="cif_dev@123">
 	</bean>
 
 	<!-- define a jdbcTemplate -->
-	<bean id="jdbcTemplate2" class="org.springframework.jdbc.core.JdbcTemplate"
-		p:dataSource-ref="dataSource2">
+	<bean id="jdbcTemplateCifDev" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSourceCifDev">
 	</bean>
 
 	<!-- define a transaction manager -->
-	<bean id="transactionManager2"
+	<bean id="transactionManagerCifDev"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-		p:dataSource-ref="dataSource">
+		p:dataSource-ref="dataSourceCifDev">
+	</bean>
+
+
+	<!-- ================================================================================== -->
+	<bean id="dataSourceCifFntDev" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" p:driverClassName="com.mysql.jdbc.Driver"
+		p:url="jdbc:mysql://10.1.1.182:3306/cif_fnt_dev?useUnicode=true&amp;characterEncoding=utf8"
+		p:username="cif_fnt_dev" p:password="cif_fnt_dev@123">
+	</bean>
+
+	<!-- define a jdbcTemplate -->
+	<bean id="jdbcTemplateCifFntDev" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSourceCifFntDev">
+	</bean>
+
+	<!-- define a transaction manager -->
+	<bean id="transactionManagerCifFntDev"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSourceCifFntDev">
 	</bean>
 
 

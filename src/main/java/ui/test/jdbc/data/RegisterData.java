@@ -20,8 +20,8 @@ import ui.test.tools.SpringUtil;
 
 public class RegisterData {
 
-	private JdbcTemplate jdbcTemplate = (JdbcTemplate) SpringUtil
-			.getBean("jdbcTemplate2");
+	private JdbcTemplate jdbcTemplateCifDev = (JdbcTemplate) SpringUtil
+			.getBean("jdbcTemplateCifDev");
 
 	public static void main(String[] args) {
 		RegisterData RegisterData = new RegisterData();
@@ -41,7 +41,7 @@ public class RegisterData {
 		Object[] params = new Object[] { loginName };
 		final List<String> result = new ArrayList<String>();
 		// final String result = null;
-		jdbcTemplate.query(sql, params, new RowCallbackHandler() {
+		jdbcTemplateCifDev.query(sql, params, new RowCallbackHandler() {
 
 			@Override
 			public void processRow(ResultSet rs) throws SQLException {
