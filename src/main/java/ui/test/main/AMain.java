@@ -93,6 +93,10 @@ public class AMain {
 		PartnerManageTest PartnerManageTest = new PartnerManageTest();
 		PartnerManageTest.新增合作厂家测试(driver, timestamp);
 
+		// 申请贷款测试
+		LoanApplyTest LoanApplyTest = new LoanApplyTest();
+		LoanApplyTest.我要贷款测试(driver, timestamp);
+
 		// 生成报告
 		report(timestamp);
 
