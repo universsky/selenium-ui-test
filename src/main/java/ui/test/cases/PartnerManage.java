@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ui.test.constant.Const;
-import ui.test.jdbc.data.PartnerData;
 import ui.test.tools.DBTool;
 import ui.test.tools.TimeTool;
 import ui.test.tools.WebTool;

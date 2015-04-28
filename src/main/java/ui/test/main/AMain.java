@@ -49,11 +49,15 @@ public class AMain {
 		timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		m.goTest(driver, timestamp);
 
+		driver.close();
+		driver.quit();
+
 	}
 
 	private synchronized void goTest(WebDriver driver, String timestamp)
 			throws WebDriverException, IOException {
 
+		// 登陆测试
 		LoginTest loginTest = new LoginTest();
 		loginTest.testLoginSolutionTest(driver, timestamp);
 		loginTest.testLoginPasswordIsEmpty(driver, timestamp);
@@ -61,9 +65,11 @@ public class AMain {
 		loginTest.testLoginUserNameIsEmpty(driver, timestamp);
 		loginTest.testLoginUserNameNotExist(driver, timestamp);
 
+		// 注册测试
 		RegisterTest registerTest = new RegisterTest();
 		registerTest.testRegister(driver, timestamp);
 
+		// 申请会员测试
 		MemberRegisterTest memberRegisterTest = new MemberRegisterTest();
 
 		memberRegisterTest.解决方案测试(driver, timestamp);
@@ -83,9 +89,11 @@ public class AMain {
 		memberRegisterTest.法定代表人6个字(driver, timestamp);
 		memberRegisterTest.法定代表人空校验(driver, timestamp);
 
+		// 新增合作厂家
 		PartnerManageTest PartnerManageTest = new PartnerManageTest();
 		PartnerManageTest.新增合作厂家测试(driver, timestamp);
 
+		// 生成报告
 		report(timestamp);
 
 	}
