@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QJD Web UI 测试报告</title>
+<script type="text/javascript" src="jquery/jquery-1.8.2.min.js"></script>
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.hovertable {
+	font-family: verdana, arial, sans-serif;
+	font-size: 11px;
+	color: #666666;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.hovertable th {
+	background-color: #ffffff;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+table.hovertable tr {
+	background-color: #dfe3e5;
+}
+
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+</style>
+
+<h1 align="center">QJD Web UI 测试报告</h1>
+<div id=time align="right"></div>
+<!--
+<script>setInterval("time.innerHTML='今天是'+new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay())+' ';",1000);</script>
+ -->
+<script type="text/javascript">
+	var timestamp0 = 20150406233421;
+	var href = location.href;
+	var m, timestamp;
+
+	m = href.match(/stamp=(\d+)/);
+	if (!m)
+		timestamp = timestamp0;
+	else
+		timestamp = m[1];
+
+	$
+			.ajax({
+				url : 'http://test.qjdchina.com:8080/ReportServlet/tc?timestamp='
+						+ timestamp, //请求地址
+				type : 'GET', //POST或GET请求
+				data : {
+					siteName : "http://test.qjdchina.com:8080/ReportServlet/tc?timestamp=" //参数 JSON格式 如果是GET请求可以直接在URL里写
+				},
+				dataType : 'jsonp',//json 或者 jsonp 默认是html
+				timeout : 10000,
+				error : function() {
+					alert('Time out loading : http://test.qjdchina.com:8080/ReportServlet/tc?timestamp='
+							+ timestamp);
+				},
+				success : function(JSON) {
+
+					var content = "";
+
+					// var table_head = "<table class=\"gridtable\"><tr><td>id<br></td><td >tcKey<br></td><td >timestamp<br></td><td >img<br></td><td >tcResult<br></td></tr>";
+					var table_head = "<table class=\"hovertable\"><tr><td>测试时间<br></td><td >"
+							+ timestamp
+							+ "<br></td><td><br></td><td><br></td><td><br></td><td><br></td><td ><br></td>"
+							+ "<tr>"
+							+ "<td>id<br></td>"
+							+ "<td >tcKey<br></td>"
+							+ "<td >img<br></td>"
+							+ "<td >tcResult<br></td>"
+							+ "<td >expected<br></td>"
+							+ "<td >actual<br></td>"
+							+ "<td >log<br></td>" + "</tr>";
+
+					content += table_head;
+
+					/* content main body */
+
+					for (i = 0; i < JSON.length; i++) {
+						if (JSON[i].tcResult == "PASS") {
+							content += "<tr  onmouseover=\"this.style.backgroundColor='#FAFAD2';\" onmouseout=\"this.style.backgroundColor='#eeeeee';\">";
+						} else {
+							content += "<tr  onmouseover=\"this.style.backgroundColor='#EE6363';\" onmouseout=\"this.style.backgroundColor='#eeeeee';\">";
+						}
+						content += "<td>" + JSON[i].id + "<br></td>";
+						content += "<td>" + JSON[i].tcKey + "<br></td>";
+						//content +="<td>"+JSON[i].timeStamp+"<br></td>";
+
+						var img_src = "http://test.qjdchina.com:8080/UploadFileToServer/up/img_screenshot/"
+								+ JSON[i].imgName;
+						content += "<td><a href=\""+img_src+"\"><img src=\""+img_src +"\" height=\"80\" width=\"60\"/><br></td>";
+
+						if (JSON[i].tcResult == "PASS") {
+							content += "<td style=\"background-color:#7CFC00\">"
+									+ JSON[i].tcResult + "<br></td>";
+						} else {
+							content += "<td style=\"background-color:#EE6363\">"
+									+ JSON[i].tcResult + "<br></td>";
+						}
+
+						content += "<td>" + JSON[i].expected + "<br></td>";
+						content += "<td>" + JSON[i].actual + "<br></td>";
+						content += "<td>" + JSON[i].log + "<br></td>";
+
+					}
+
+					var table_end = "</table>";
+					content += table_end;
+
+					/* div id="basic_info" */
+					$("#basic_info").each(function() {
+						$(this).html(content);
+					});
+
+				}
+			});
+</script>
+</head>
+<body>
+	<div id="basic_info"></div>
+</body>
+</html>
