@@ -42,20 +42,29 @@ public class PartnerManage {
 
 			TimeTool.delayMilliSeconds(1000L);
 
-			driver.findElement(
-					By.xpath(TCData.getString("PartnerManage.partner_tab")))
-					.click();
+			// click the add partner tab
 
+			// driver.findElement(
+			// By.xpath(TCData.getString("PartnerManage.partner_tab")))
+			// .click();
+
+			String className = TCData
+					.getString("PartnerManage.partner_tab_class");
+			driver.findElement(By.className(className));
+
+			// add partnter
 			((JavascriptExecutor) driver).executeScript(tcValue);
 
 			TimeTool.delayMilliSeconds(1000L);
 
-			return driver;
+			// return driver;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			// return null;
 		}
+
+		return driver;
 
 	}
 

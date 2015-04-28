@@ -37,7 +37,6 @@ public class Login {
 
 	private static final String url = TCData.getString("LoginTest.url"); //$NON-NLS-1$
 
-
 	/**
 	 * 
 	 * @param tcKey
@@ -57,12 +56,14 @@ public class Login {
 			// driver.findElement(By.xpath(xpathExpression)).click();
 			TimeTool.delayMilliSeconds(3000L);
 
-			return driver;
+			// return driver;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			// return null;
 		}
+
+		return driver;
 
 	}
 

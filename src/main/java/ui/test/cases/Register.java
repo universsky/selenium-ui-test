@@ -57,12 +57,13 @@ public class Register {
 			//					By.xpath(TCData.getString("Register.register_button"))) //$NON-NLS-1$
 			// .click();
 
-			return driver;
+			// return driver;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			// return null;
 		}
+		return driver;
 
 	}
 

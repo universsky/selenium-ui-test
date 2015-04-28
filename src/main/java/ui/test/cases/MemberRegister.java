@@ -57,12 +57,13 @@ public class MemberRegister {
 					.click();
 			TimeTool.delayMilliSeconds(1000L);
 
-			return driver;
+			// return driver;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			// return null;
 		}
+		return driver;
 
 	}
 
