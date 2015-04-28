@@ -32,7 +32,7 @@ public class RegisterTest {
 
 		String tcKey = "RegisterTest.RegisterTest";
 		logger.info(tcKey);
-		driver = register.doRegister(tcKey);
+		driver = register.doRegister(tcKey, driver);
 
 		String tcResult = registerData.getLoginName("13291801306").size() > 0 ? TCResult.PASS
 				.getMsg() : TCResult.FAIL.getMsg();

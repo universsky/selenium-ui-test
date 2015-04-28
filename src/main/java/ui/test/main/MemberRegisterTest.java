@@ -32,7 +32,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.SolutionTest";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -52,7 +52,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.Company3Words";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -71,7 +71,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.Company26Words";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -90,7 +90,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.CompanyEnglishName";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -109,7 +109,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.CompanyIllegalChars";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -128,7 +128,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.AddressNull";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -147,7 +147,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.RegCodeNull";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -166,7 +166,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.RegCode1Digits";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -185,7 +185,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.RegCode14Digits";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -204,7 +204,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.Address20Words";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -223,7 +223,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.Address51Words";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -242,7 +242,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.Address3Words";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -261,7 +261,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.Legal6Words";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -280,7 +280,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.Legal5Words";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -299,7 +299,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.Legal1Words";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 
@@ -318,7 +318,7 @@ public class MemberRegisterTest {
 		String tcKey = "MemberRegister.LegalNull";
 		logger.info(tcKey);
 
-		driver = memberRegister.doMemberRegister(tcKey);
+		driver = memberRegister.doMemberRegister(tcKey, driver);
 
 		String log = "Current url===============" + driver.getCurrentUrl();
 

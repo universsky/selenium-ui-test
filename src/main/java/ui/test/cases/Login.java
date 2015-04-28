@@ -41,9 +41,9 @@ public class Login {
 	 * 
 	 * @param tcKey
 	 */
-	public synchronized WebDriver doLogin(String tcKey) {
+	public synchronized WebDriver doLogin(String tcKey, WebDriver driver) {
 
-		WebDriver driver = WebTool.initFirefoxDriver();
+		// WebDriver driver = WebTool.initFirefoxDriver();
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 

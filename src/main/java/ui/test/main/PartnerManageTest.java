@@ -43,7 +43,7 @@ public class PartnerManageTest {
 		partnerData.deletePartnerName(loginName, partnerName);
 
 		// add partner
-		driver = PartnerManage.doAddPartner(tcKey);
+		driver = PartnerManage.doAddPartner(tcKey, driver);
 
 		// check db data
 		String[] partners = partnerData.getPartnerNamesByLoginName(loginName);

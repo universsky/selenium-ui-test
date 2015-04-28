@@ -29,7 +29,7 @@ public class LoginTest {
 		String tcKey = "LoginTest.UserNameIsEmptyTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey, driver);
 
 		Set<Cookie> cookies = driver.manage().getCookies();
 		logger.info("Cookies===============" + cookies);
@@ -51,7 +51,7 @@ public class LoginTest {
 		String tcKey = "LoginTest.PasswordIsEmptyTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey, driver);
 
 		Set<Cookie> cookies = driver.manage().getCookies();
 		logger.info("Cookies===============" + cookies);
@@ -73,7 +73,7 @@ public class LoginTest {
 		String tcKey = "LoginTest.PasswordIsWrongTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey, driver);
 
 		Set<Cookie> cookies = driver.manage().getCookies();
 		logger.info("Cookies===============" + cookies);
@@ -96,7 +96,7 @@ public class LoginTest {
 		String tcKey = "LoginTest.UserNameNotExistTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey, driver);
 
 		Set<Cookie> cookies = driver.manage().getCookies();
 		logger.info("Cookies===============" + cookies);
@@ -119,7 +119,7 @@ public class LoginTest {
 		String tcKey = "LoginTest.SolutionTest";
 		logger.info(tcKey);
 		Login login = new Login();
-		driver = login.doLogin(tcKey);
+		driver = login.doLogin(tcKey, driver);
 
 		logger.info("Cookies===============" + driver.manage().getCookies());
 		String log = "Cookies===============" + driver.manage().getCookies();

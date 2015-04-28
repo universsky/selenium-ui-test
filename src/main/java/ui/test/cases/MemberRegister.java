@@ -31,9 +31,10 @@ public class MemberRegister {
 	private static Logger logger = LoggerFactory
 			.getLogger(MemberRegister.class);
 
-	public synchronized WebDriver doMemberRegister(String tcKey) {
+	public synchronized WebDriver doMemberRegister(String tcKey,
+			WebDriver driver) {
 
-		WebDriver driver = WebTool.initFirefoxDriver();
+		// WebDriver driver = WebTool.initFirefoxDriver();
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
