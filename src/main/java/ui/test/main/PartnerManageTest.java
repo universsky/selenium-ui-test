@@ -39,9 +39,6 @@ public class PartnerManageTest {
 		String loginName = TCData.getString("PartnerManage.login_name");
 		String partnerName = TCData.getString("PartnerManage.partner_name");
 
-		// init db data
-		partnerData.deletePartnerName(loginName, partnerName);
-
 		// add partner
 		driver = PartnerManage.doAddPartner(tcKey, driver);
 
@@ -63,6 +60,9 @@ public class PartnerManageTest {
 		}
 		ReportTool.record(tcKey, driver, tcResult, expected, actual, log,
 				timestamp);
+
+		// init db data
+		partnerData.deletePartnerName(loginName, partnerName);
 
 	}
 }
