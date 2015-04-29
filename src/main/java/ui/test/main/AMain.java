@@ -96,7 +96,21 @@ public class AMain {
 		// 申请贷款测试
 		LoanApplyTest LoanApplyTest = new LoanApplyTest();
 		LoanApplyTest.我要贷款解决方案测试(driver, timestamp);
-
+		LoanApplyTest.我要贷款解决方案测试(driver, timestamp);
+		LoanApplyTest.我要贷款项目名称空校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款项目名称3位校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款项目名称16位校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款开发商空校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款开发商3位校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款开发商16位校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款合同金额空校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款合同金额0校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款合同金额5位校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款贷款金额空校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款贷款金额0校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款贷款金额5位校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款贷款金额大于合同金额校验测试(driver, timestamp);
+		LoanApplyTest.我要贷款贷款期限12个月校验测试(driver, timestamp);
 		// 生成报告
 		report(timestamp);
 
