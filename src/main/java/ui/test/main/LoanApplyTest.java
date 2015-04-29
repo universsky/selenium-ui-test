@@ -281,10 +281,10 @@ public class LoanApplyTest {
 
 		driver = LoanApply.doLoan(tcKey, driver);
 
-		String expected = Const.我要贷款Url;
+		String expected = Const.贷款成功前缀Url;
 		String actual = driver.getCurrentUrl();
 
-		String tcResult = expected.equals(actual) ? TCResult.PASS.getMsg()
+		String tcResult = actual.contains(expected) ? TCResult.PASS.getMsg()
 				: TCResult.FAIL.getMsg();
 
 		String log = actual;

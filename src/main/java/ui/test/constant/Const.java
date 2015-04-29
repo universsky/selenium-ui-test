@@ -18,6 +18,7 @@ public class Const {
 	public final static String 新增合作厂家Url = "https://qjdchina.com/front/member/partners.htm";
 
 	public final static String 我要贷款Url = "https://qjdchina.com/loan/loanApply";
+	public final static String 贷款成功前缀Url = "https://qjdchina.com/loan/loanApplySuccess?id=";
 
 	public final static String uploadUrl = "http://test.qjdchina.com:8080/UploadFileToServer/upload/up";
 	public final static String reportPath = "http://test.qjdchina.com:8080/UploadFileToServer/up/report.html?timestamp=";
