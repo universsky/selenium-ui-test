@@ -95,7 +95,7 @@ public class AMain {
 
 		// 申请贷款测试
 		LoanApplyTest LoanApplyTest = new LoanApplyTest();
-		LoanApplyTest.我要贷款测试(driver, timestamp);
+		LoanApplyTest.我要贷款解决方案测试(driver, timestamp);
 
 		// 生成报告
 		report(timestamp);
