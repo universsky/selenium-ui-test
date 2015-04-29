@@ -54,6 +54,14 @@ public class LoanApply {
 			// driver.findElement(By.className(className));
 
 			// (1) click the loan tab , (2) toloanApply
+
+			((JavascriptExecutor) driver)
+					.executeScript("$('.toLoanApply')[0].click();");
+			((JavascriptExecutor) driver)
+					.executeScript("$('.toLoanApply')[1].click();");
+
+			TimeTool.delayMilliSeconds(1000L);
+
 			((JavascriptExecutor) driver).executeScript(tcValue);
 
 			TimeTool.delayMilliSeconds(1000L);

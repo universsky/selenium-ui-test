@@ -53,7 +53,13 @@ public class LoginTest {
 		Login login = new Login();
 		driver = login.doLogin(tcKey, driver);
 
-		Set<Cookie> cookies = driver.manage().getCookies();
+		Set<Cookie> cookies = null;
+		try {
+			cookies = driver.manage().getCookies();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		logger.info("Cookies===============" + cookies);
 		String log = "Cookies===============" + cookies;
 		Cookie c = driver.manage().getCookieNamed("login_corpname");
@@ -75,7 +81,13 @@ public class LoginTest {
 		Login login = new Login();
 		driver = login.doLogin(tcKey, driver);
 
-		Set<Cookie> cookies = driver.manage().getCookies();
+		// Set<Cookie> cookies = driver.manage().getCookies();
+		Set<Cookie> cookies = null;
+		try {
+			cookies = driver.manage().getCookies();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		logger.info("Cookies===============" + cookies);
 		String log = "Cookies===============" + cookies;
 		Cookie c = driver.manage().getCookieNamed("login_corpname");
@@ -98,7 +110,13 @@ public class LoginTest {
 		Login login = new Login();
 		driver = login.doLogin(tcKey, driver);
 
-		Set<Cookie> cookies = driver.manage().getCookies();
+		// Set<Cookie> cookies = driver.manage().getCookies();
+		Set<Cookie> cookies = null;
+		try {
+			cookies = driver.manage().getCookies();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		logger.info("Cookies===============" + cookies);
 		String log = "Cookies===============" + cookies;
 		Cookie c = driver.manage().getCookieNamed("login_corpname");

@@ -21,8 +21,6 @@ import ui.test.tools.WebTool;
 
 public class AMain {
 
-	static WebDriver driver;
-
 	/**
 	 * @param args
 	 * @throws IOException
@@ -35,19 +33,21 @@ public class AMain {
 		// chrome
 		String timestamp = new SimpleDateFormat("yyyyMMddHHmmss")
 				.format(new Date());
-		driver = WebTool.initChromeDriver();
+		WebDriver driver = WebTool.initChromeDriver();
 
 		m.goTest(driver, timestamp);
 
-		// internet explorer
-		driver = WebTool.initInternetExplorerDriver();
-		timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-		m.goTest(driver, timestamp);
-
-		// firefox
-		driver = WebTool.initFirefoxDriver();
-		timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-		m.goTest(driver, timestamp);
+		// // internet explorer
+		// driver = WebTool.initInternetExplorerDriver();
+		// timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new
+		// Date());
+		// m.goTest(driver, timestamp);
+		//
+		// // firefox
+		// driver = WebTool.initFirefoxDriver();
+		// timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new
+		// Date());
+		// m.goTest(driver, timestamp);
 
 		driver.close();
 		driver.quit();

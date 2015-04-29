@@ -45,6 +45,9 @@ public class Login {
 
 		// WebDriver driver = WebTool.initFirefoxDriver();
 
+		// delete cookies
+		driver.manage().deleteAllCookies();
+
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
 		try {

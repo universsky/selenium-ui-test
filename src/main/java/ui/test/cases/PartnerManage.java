@@ -22,10 +22,9 @@ public class PartnerManage {
 
 	private static Logger logger = LoggerFactory.getLogger(PartnerManage.class);
 
-	public synchronized WebDriver doAddPartner(String tcKey,
-			WebDriver driver) {
+	public synchronized WebDriver doAddPartner(String tcKey, WebDriver driver) {
 
-//		WebDriver driver = WebTool.initFirefoxDriver();
+		// WebDriver driver = WebTool.initFirefoxDriver();
 
 		String tcValue = new DBTool().getTcValueBytcKey(tcKey);
 
